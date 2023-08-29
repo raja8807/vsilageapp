@@ -1,0 +1,31 @@
+.login_box {
+  height: 100%;
+  width: 100%;
+  @include flexCenter;
+  flex-direction: column;
+  form {
+    @include flexCenter;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  input {
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 2px solid $color_blue;
+    outline: none;
+
+    &[type="submit"] {
+      background-color: $color_blue;
+      color: white;
+    }
+  }
+
+  p{
+    font-size: 14px;
+    margin-top: 10px;
+    color: grey;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

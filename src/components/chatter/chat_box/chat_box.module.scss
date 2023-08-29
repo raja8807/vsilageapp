@@ -1,0 +1,41 @@
+
+
+.chatter {
+  display: flex;
+  height: calc(100vh - 125px);
+  flex-direction: column;
+  padding: 16px;
+  overflow: auto;
+
+}
+
+.send_control {
+  height: 80px;
+  background-color: rgb(210, 200, 200);
+  display: flex;
+  align-items: center;
+
+  .send_btn {
+    background-color: $color_blue;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin: 0 10px;
+    @include flexCenter;
+    &:not(.disabled) {
+      cursor: pointer;
+    }
+    svg {
+      color: white;
+    }
+  }
+
+  textarea {
+    background-color: transparent;
+    border: none !important;
+    outline: none;
+    width: 90%;
+    height: 80px !important;
+    padding: 2px 5px 2px 16px;
+  }
+}

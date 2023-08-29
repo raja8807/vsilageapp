@@ -1,0 +1,16 @@
+.chat_row {
+  padding: 10px 16px;
+  border-bottom: 2px solid grey;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(233, 233, 233);
+  }
+  p {
+    font-size: 17px;
+  }
+
+  small {
+    color: grey;
+  }
+}

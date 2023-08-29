@@ -1,0 +1,16 @@
+.header {
+  background-color: $color_blue;
+  padding: 10px;
+  color: white;
+
+  svg {
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  button {
+    background-color: white;
+    height: 8px;
+    width: 8px;
+  }
+}

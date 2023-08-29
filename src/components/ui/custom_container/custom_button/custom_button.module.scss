@@ -1,0 +1,16 @@
+.custom_button {
+  border: none;
+  background-color: $color_blue;
+  color: white;
+  padding: 4px 14px;
+  border-radius: 13px;
+  font-size: 18px;
+
+  &:hover {
+    background-color: $color_yellow;
+    color: black;
+  }
+
+  // color: white;z-index: 100;
+  // opacity: 1;
+}
