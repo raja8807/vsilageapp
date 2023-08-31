@@ -33,40 +33,6 @@ export default NextAuth({
 
         return null;
 
-        // if (
-        //   email === "sathish8226+sage@gmail.com" &&
-        //   password === "Enter@321"
-        // ) {
-        //   return {
-        //     email,
-        //     id: "3q4905w7407",
-        //   };
-        // } else {
-        //   // If you return null then an error will be displayed advising the user to check their details.
-        //   return null;
-        // }
-
-        //   try {
-        //     if (connection) {
-        //       const user = await User.findOne({ user_name: userName });
-        //       if (user) {
-        //         if (user.password === password) {
-        //           return user;
-        //         } else {
-        //           throw new Error(JSON.stringify({ password: "Wrong Password" }));
-        //         }
-        //       } else {
-        //         throw new Error(JSON.stringify({ userName: "User Not Found" }));
-        //       }
-        //     } else {
-        //       throw new Error(
-        //         JSON.stringify({ userName: "Something went wrong" })
-        //       );
-        //     }
-        //   } catch (err) {
-        //     //   console.log(Object.keys(err));
-        //     throw new Error(err.message);
-        //   }
       },
     }),
   ],

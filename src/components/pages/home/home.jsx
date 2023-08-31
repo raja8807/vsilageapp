@@ -6,6 +6,9 @@ const HomeScreen = () => {
   return (
     <>
       <Banner />
+      {
+        process.env.NEXT_PUBLIC_MONGO_URI
+      }
       <AboutUs />
     </>
   );
