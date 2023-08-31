@@ -4,8 +4,9 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import Layout from "@/components/ui/custom_container/layout/laout";
 import Chatter from "@/components/chatter/chatter";
+import { SessionProvider } from "next-auth/react";
 
-export default function App({ Component, pageProps }) {
+export default function App({ session, Component, pageProps }) {
   useEffect(() => {
     Aos.init({
       // easing: "ease-out-cubic",
@@ -16,10 +17,12 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <Layout>
-        <Component {...pageProps} />
-        <Chatter />
-      </Layout>
+      <SessionProvider session={session}>
+        <Layout>
+          <Component {...pageProps} />
+          <Chatter />
+        </Layout>
+      </SessionProvider>
     </>
   );
 }

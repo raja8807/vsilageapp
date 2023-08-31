@@ -1,13 +1,31 @@
+import { Check, Clock, ExclamationCircle } from "react-bootstrap-icons";
 import styles from "./chat.module.scss";
 
 const Chat = (props) => {
-  const { isAdmin, chat } = props;
+  const { isCurrentUser, chat } = props;
+
+  const getIcon = () => {
+    if (chat.status === "success") {
+      return <Check style={{ color: "skyblue", fontSize: "14px" }} />;
+    }
+    if (chat.status === "pending") {
+      return <Clock />;
+    }
+
+    if (chat.status === "failed") {
+      return <ExclamationCircle style={{ color: "red" }} />;
+    }
+    return <Check style={{ color: "skyblue", fontSize: "14px" }} />;
+  };
 
   return (
-    <div className={`${styles.chat} ${isAdmin && styles.isAdmin}`}>
+    <div className={`${styles.chat} ${isCurrentUser && styles.isAdmin}`}>
       <pre className={styles.message}>
         {chat.message}
-        <small>10-10-23 10:20</small>
+        <small>
+          {/* 10-10-23 10:20  */}
+          {isCurrentUser && getIcon()}
+        </small>
       </pre>
     </div>
   );

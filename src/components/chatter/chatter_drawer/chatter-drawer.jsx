@@ -4,6 +4,8 @@ import ChatList from "../chat_list/chat_list";
 import styles from "./chatter-drawer.module.scss";
 import { ArrowLeft, ArrowLeftCircle } from "react-bootstrap-icons";
 import LoginBox from "../login_box/login_box";
+import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 
 const { Offcanvas } = require("react-bootstrap");
 
@@ -11,21 +13,25 @@ const ChatterDrawer = (props) => {
   const { show, setShow } = props;
   const handleClose = () => setShow(false);
 
-  const [session, setSession] = useState(null);
+  const session = useSession();
+
+  const isAuthenticated = !!session?.data
   const [currentUserEmail, setCurrentUserEmail] = useState(null);
+
+  const [chats,setChats] = useState([])
+
 
   useEffect(() => {
     setCurrentUserEmail(sessionStorage.getItem("currentUserEmail"));
   }, []);
-
 
   const [currentChatEmail, setCurrentChatEmail] = useState(null);
 
   return (
     <Offcanvas show={show} onHide={handleClose} placement="end">
       <Offcanvas.Header closeButton className={styles.header}>
-        {!session && !currentUserEmail && "Login"}
-        {!session && currentUserEmail && (
+        {!isAuthenticated && !currentUserEmail && "Login"}
+        {!isAuthenticated && currentUserEmail && (
           <>
             <ArrowLeftCircle
               onClick={() => {
@@ -37,18 +43,18 @@ const ChatterDrawer = (props) => {
           </>
         )}
 
-        {session && !currentChatEmail && (
+        {isAuthenticated && !currentChatEmail && (
           <>
             <ArrowLeftCircle
-              onClick={() => {
-                setSession(null);
+              onClick={async () => {
+                await signOut();
               }}
             />
             All Chats
           </>
         )}
 
-        {session && currentChatEmail && (
+        {isAuthenticated && currentChatEmail && (
           <>
             <ArrowLeftCircle
               onClick={() => {
@@ -60,30 +66,25 @@ const ChatterDrawer = (props) => {
         )}
       </Offcanvas.Header>
       <Offcanvas.Body style={{ padding: 0 }}>
-        {!session && !currentUserEmail && (
+        {!isAuthenticated && !currentUserEmail && (
           <LoginBox
             setCurrentUserEmail={setCurrentUserEmail}
-            setSession={setSession}
           />
         )}
 
-        {!session && currentUserEmail && (
-          <ChatBox currentChatEmail={currentChatEmail} />
+        {!isAuthenticated && currentUserEmail && (
+          <ChatBox currentChatEmail={currentUserEmail} isUser={true}/>
         )}
 
-        {session && !currentChatEmail && (
-          <ChatList setCurrentChatEmail={setCurrentChatEmail} />
+        {isAuthenticated && !currentChatEmail && (
+          <ChatList setCurrentChatEmail={setCurrentChatEmail} setChats={setChats} 
+          adminEmail={session?.data?.user?.email}
+          />
         )}
 
-        {session && currentChatEmail && (
-          <ChatBox currentChatEmail={currentChatEmail} />
+        {isAuthenticated && currentChatEmail && (
+          <ChatBox currentChatEmail={currentChatEmail} chats={chats}/>
         )}
-
-        {/* {session && !currentChatEmail ? (
-          <ChatList setCurrentChatEmail={setCurrentChatEmail} />
-        ) : (
-          <ChatBox currentChatEmail={currentChatEmail} />
-        )} */}
       </Offcanvas.Body>
     </Offcanvas>
   );

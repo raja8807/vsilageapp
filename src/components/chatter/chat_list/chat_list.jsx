@@ -1,37 +1,33 @@
+import { useEffect, useState } from "react";
 import ChatRow from "./chat_row/chat_row";
 
 const ChatList = (props) => {
+  const { setCurrentChatEmail, setChats, adminEmail } = props;
 
-    const {setCurrentChatEmail} = props
+  const [chatListData, setChatListData] = useState([]);
+  useEffect(() => {
+    const fetchChats = async () => {
+      const res = await fetch("api/chat/getChatList");
+      const data = await res.json();
+      setChats(data);
+      const allchats = data;
+      // .filter((c) => !c.senderId);
 
-  const chatListData = [
-    {
-      senderEmail: "abcd@gmail.com",
-      lastMessage: "hello",
-    },
-    {
-      senderEmail: "24134das@gmail.com",
-      lastMessage: "hello",
-    },
-    {
-      senderEmail: "aefpiqepfbcd@gmail.com",
-      lastMessage: "hello",
-    },
-    {
-      senderEmail: "efqkef@gmail.com",
-      lastMessage: "hello",
-    },
-    {
-      senderEmail: "oefqefq;@gmail.com",
-      lastMessage: "hello",
-    },
-    {
-      senderEmail: "ifeqoieio@gmail.com",
-      lastMessage: "hello",
-    },
-  ];
+      console.log(allchats);
 
+      const unique = [...new Set(allchats.map((chat) => chat.senderEmail))];
 
+      const x = unique.map((u) =>
+        allchats.filter((c) => c.senderEmail === u || c.recieverEmail === u)
+      );
+      const chatList = x.map((c, i) => ({
+        senderEmail: c[0].senderEmail,
+        lastMessage: c[c.length - 1].message,
+      }));
+      setChatListData(chatList.filter((c) => c.senderEmail !== adminEmail));
+    };
+    fetchChats();
+  }, []);
 
   return (
     <>
