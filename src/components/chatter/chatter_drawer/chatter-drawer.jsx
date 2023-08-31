@@ -15,11 +15,32 @@ const ChatterDrawer = (props) => {
 
   const session = useSession();
 
-  const isAuthenticated = !!session?.data
+  const isAuthenticated = !!session?.data;
   const [currentUserEmail, setCurrentUserEmail] = useState(null);
 
-  const [chats,setChats] = useState([])
+  const [chats, setChats] = useState([]);
 
+  const [chatListData, setChatListData] = useState([]);
+
+  const fetchChats = async () => {
+    const res = await fetch("api/chat/getChatList");
+    const data = await res.json();
+    setChats(data);
+    const allchats = data;
+
+    const unique = [...new Set(allchats.map((chat) => chat.senderEmail))];
+
+    const x = unique.map((u) =>
+      allchats.filter((c) => c.senderEmail === u || c.recieverEmail === u)
+    );
+    const chatList = x.map((c, i) => ({
+      senderEmail: c[0].senderEmail,
+      lastMessage: c[c.length - 1].message,
+    }));
+    setChatListData(
+      chatList.filter((c) => c.senderEmail !== session?.data?.user?.email)
+    );
+  };
 
   useEffect(() => {
     setCurrentUserEmail(sessionStorage.getItem("currentUserEmail"));
@@ -67,23 +88,30 @@ const ChatterDrawer = (props) => {
       </Offcanvas.Header>
       <Offcanvas.Body style={{ padding: 0 }}>
         {!isAuthenticated && !currentUserEmail && (
-          <LoginBox
-            setCurrentUserEmail={setCurrentUserEmail}
-          />
+          <LoginBox setCurrentUserEmail={setCurrentUserEmail} />
         )}
 
         {!isAuthenticated && currentUserEmail && (
-          <ChatBox currentChatEmail={currentUserEmail} isUser={true}/>
+          <ChatBox currentChatEmail={currentUserEmail} isUser={true} />
         )}
 
         {isAuthenticated && !currentChatEmail && (
-          <ChatList setCurrentChatEmail={setCurrentChatEmail} setChats={setChats} 
-          adminEmail={session?.data?.user?.email}
+          <ChatList
+            setCurrentChatEmail={setCurrentChatEmail}
+            setChats={setChats}
+            adminEmail={session?.data?.user?.email}
+            fetchChats={fetchChats}
+            chatListData={chatListData}
+            setChatListData={setChatListData}
           />
         )}
 
         {isAuthenticated && currentChatEmail && (
-          <ChatBox currentChatEmail={currentChatEmail} chats={chats}/>
+          <ChatBox
+            currentChatEmail={currentChatEmail}
+            chats={chats}
+            fetchChats={fetchChats}
+          />
         )}
       </Offcanvas.Body>
     </Offcanvas>

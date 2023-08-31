@@ -3,9 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./chat_box.module.scss";
 import Chat from "./chat/chat";
 import { useSession } from "next-auth/react";
+import { fetchData } from "next-auth/client/_utils";
 
 const ChatBox = (props) => {
-  const { currentChatEmail, chats, isUser } = props;
+  const { currentChatEmail, chats, isUser, fetchChats } = props;
 
   const session = useSession();
   const [chatData, setChatData] = useState(
@@ -18,26 +19,54 @@ const ChatBox = (props) => {
       : []
   );
 
-  console.log(currentChatEmail);
+  // console.log(currentChatEmail);
 
   const [newMessage, setNewMessage] = useState("");
 
   useEffect(() => {
-    if (isUser) {
-      const fetchData = async () => {
-        const res = await fetch("api/chat/getChatList");
-        const data = await res.json();
-        setChatData(
-          data.filter(
-            (c) =>
-              c.senderEmail === currentChatEmail ||
-              c.recieverEmail === currentChatEmail
-          )
-        );
-      };
-
-      fetchData();
+    if (chats) {
+      setChatData(
+        chats.filter(
+          (chat) =>
+            chat.senderEmail === currentChatEmail ||
+            chat.recieverEmail === currentChatEmail
+        )
+      );
     }
+  }, [chats]);
+
+  useEffect(() => {
+    // let interval;
+    // if (isUser) {
+    const fetchData = async () => {
+      const res = await fetch("api/chat/getChatList");
+      const data = await res.json();
+      setChatData(
+        data.filter(
+          (c) =>
+            c.senderEmail === currentChatEmail ||
+            c.recieverEmail === currentChatEmail
+        )
+      );
+    };
+    // fetchData();
+
+    if (isUser) {
+      fetchData();
+    } else {
+      fetchChats();
+    }
+    // }
+
+    const interval = setInterval(() => {
+      if (isUser) {
+        fetchData();
+      } else {
+        fetchChats();
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
   }, [isUser]);
 
   useEffect(() => {
