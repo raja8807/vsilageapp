@@ -73,8 +73,8 @@ export default NextAuth({
 //   secret: process.env.NEXTAUTH_SECRET,
   secret: 'aepijfaie39rui3rqi',
   pages: {
+      signOut: "/",
     signIn: "/auth/signin/",
-    signOut: "/",
     // error:'/auth/signin'
   },
   callbacks: {
