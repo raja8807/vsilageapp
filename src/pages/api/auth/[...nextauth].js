@@ -70,7 +70,8 @@ export default NextAuth({
       },
     }),
   ],
-  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
+//   secret: process.env.NEXTAUTH_SECRET,
+  secret: 'aepijfaie39rui3rqi',
   pages: {
     signIn: "/auth/signin/",
     signOut: "/",
