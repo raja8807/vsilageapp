@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     // try {
     //   await connectMongoDB();
     //   Chat.find().then((data) => {
-    //     res.status(200).send(data);
+        res.status(200).send('ok');
     //   });
     // } catch (err) {
     //   console.log(err);
