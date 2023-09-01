@@ -66,11 +66,13 @@ const ChatterDrawer = (props) => {
 
         {isAuthenticated && !currentChatEmail && (
           <>
-            <ArrowLeftCircle
-              onClick={async () => {
-                await signOut();
-              }}
-            />
+           
+           <p
+           onClick={async () => {
+            await signOut();
+          }}
+          style={{cursor:'pointer'}}
+           >Logout</p>
             All Chats
           </>
         )}

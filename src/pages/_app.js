@@ -6,6 +6,13 @@ import Layout from "@/components/ui/custom_container/layout/laout";
 import Chatter from "@/components/chatter/chatter";
 import { SessionProvider } from "next-auth/react";
 
+import { Raleway } from "next/font/google";
+
+const roboto = Raleway({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
+
 export default function App({ session, Component, pageProps }) {
   useEffect(() => {
     Aos.init({
@@ -17,9 +24,16 @@ export default function App({ session, Component, pageProps }) {
 
   return (
     <>
+      {/* <style jsx global>{`
+        html {
+          font-family: ${roboto.style.fontFamily};
+        }
+      `}</style> */}
       <SessionProvider session={session}>
         <Layout>
-          <Component {...pageProps} />
+          <main className={roboto.className}>
+            <Component {...pageProps} />
+          </main>
           <Chatter />
         </Layout>
       </SessionProvider>

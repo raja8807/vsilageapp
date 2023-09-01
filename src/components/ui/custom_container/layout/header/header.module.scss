@@ -1,80 +1,168 @@
 .header {
-  height: fit-content;
-  position: sticky;
-  top: 0;
-  background-color: white;
-  z-index: 100;
+  display: flex;
+  height: 140px;
 
-  &.scrolled {
-    .top_wrapper {
+  .left {
+    width: fit-content;
+    @include flexCenter;
+    border-top: 3px solid $color_light_green;
+    width: 44%;
+    > div {
       display: none;
+    }
+    img {
+      width: 150px;
+      height: auto;
+      margin: 0 50px;
     }
   }
 
-  .top_wrapper {
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .right {
+  .right {
+    width: 100%;
+    .r_top {
+      width: 100%;
+      height: 70px;
+      position: relative;
       display: flex;
-      gap: 10px;
-      align-items: center;
 
-      @include respond-below(md) {
-        gap: 4px;
-        align-items: flex-start;
-        flex-direction: column;
-        font-size: 14px;
+      .content {
+        background-color: $color_dark_green;
+        width: 100%;
+        margin-left: 70px;
+        border-bottom: 3px solid $color_light_green;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 15%;
+        gap: 30px;
 
-        span {
-          display: none;
+        hr {
+          background-color: white;
+          border: none;
+          width: 1px;
+          height: 30px;
         }
+
+        .social {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          > div {
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            @include flexCenter;
+            color: white;
+            cursor: pointer;
+            &:hover {
+              border: 1px solid white;
+              color: $color_light_green;
+            }
+            svg {
+              font-size: 14px;
+            }
+          }
+        }
+        .contact {
+          color: white;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+
+          h5 {
+            margin: 0 0 3px 0;
+            font-size: 14px;
+            font-weight: 400;
+          }
+
+          p {
+            font-size: 13px;
+            opacity: 0.8;
+            font-weight: 100;
+          }
+          svg {
+            color: $color_light_green;
+          }
+        }
+      }
+
+      .over {
+        position: absolute;
+        background-color: $color_dark_green;
+        height: 99px;
+        width: 99px;
+        transform: rotate(45deg);
+        top: -50px;
+        left: 19px;
+        border-bottom: 3px solid $color_light_green;
+      }
+    }
+
+    .r_bottom {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 15%;
+      gap: 70px;
+
+      a {
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+        font-size: 18px;
+
+        &:hover,
+        &.active {
+          color: $color_light_green;
+        }
+
+        // margin: 0;
+      }
+    }
+  }
+  .lg_top {
+    display: none;
+  }
+  @include respond-below(lg) {
+    display: unset;
+    .lg_top {
+      display: flex;
+      background-color: $color_dark_green;
+      border-bottom: 3px solid $color_light_green;
+      justify-content: center;
+      padding: 10px 0;
+      color: white;
+
+      p{
+        margin: 0;
+        font-weight: 100;
+      }
+    }
+    .left {
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      
+
+      img {
+        margin: 0 20px;
+        padding: 10px;
       }
 
       > div {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-
-        svg {
-          color: $color_blue;
-        }
+        display: unset;
+        margin-right: 20px;
+        font-size: 34px;
+        cursor: pointer;
       }
     }
-    img {
-      height: 40px;
-      width: auto;
-    }
-  }
-  nav {
-    background-color: $color_blue;
-    @include flexCenter;
-    gap: 24px;
-    // display: none;
-
-    a {
-      color: white;
-      text-decoration: none;
-      padding: 8px 6px;
-      font-size: 20px;
-      //   margin: 2px;
-
-      &:hover {
-        color: $color_yellow;
-      }
-
-      &.active {
-        color: $color_yellow;
-        font-weight: 500;
-      }
-    }
-
-    @include respond-below(md) {
-      gap: 10px;
-      a {
-        font-size: 15px;
-      }
+    .right {
+      display: none;
     }
   }
 }

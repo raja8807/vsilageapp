@@ -1,9 +1,19 @@
+// import { Image } from "react-bootstrap";
+// import CustomContainer from "../../custom_container";
 import { Image } from "react-bootstrap";
-import CustomContainer from "../../custom_container";
 import styles from "./header.module.scss";
-import Link from "next/link";
-import { EnvelopeAtFill, TelephoneFill } from "react-bootstrap-icons";
+// import Link from "next/link";
+// import { EnvelopeAtFill, TelephoneFill } from "react-bootstrap-icons";
 import { useEffect, useState } from "react";
+import {
+  ClockFill,
+  Facebook,
+  Instagram,
+  List,
+  TelephoneFill,
+  Youtube,
+} from "react-bootstrap-icons";
+import Link from "next/link";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -14,37 +24,73 @@ const Header = () => {
         setScrolled(window.scrollY > 0);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header className={`${styles.header} ${scrolled && styles.scrolled}`}>
-      <CustomContainer>
-        <div className={styles.top_wrapper}>
-          <Image src="/images/vsilage_logo.png" alt="vsilage_logo" fluid />
-          <div className={styles.right}>
-            <div>
-              <EnvelopeAtFill />
-              <p>abcdevfi@gmail.com</p>
+      <div className={styles.lg_top}>
+        <p>Call Us: 1800 121 7677 
+          &nbsp; 
+          &nbsp; 
+          &nbsp;
+          &nbsp;
+           Business Hours: 09:00 - 18:00</p>
+      </div>
+      <div className={styles.left}>
+        <Image src="/images/logo/logo.png" fluid alt="logo" />
+        <div>
+          <List />
+        </div>
+      </div>
+
+      <div className={styles.right}>
+        <div className={styles.r_top}>
+          <div className={styles.over} />
+          <div className={styles.content}>
+            <div className={styles.social}>
+              <div>
+                <Facebook />
+              </div>
+              <div>
+                <Instagram />
+              </div>
+              <div>
+                <Youtube />
+              </div>
+              {/* <div>
+                <Instagram />
+              </div> */}
             </div>
-            <span>|</span>
-            <div>
+
+            <hr />
+            <div className={styles.contact}>
               <TelephoneFill />
-              <p>+91 98765 43210</p>
+              <div>
+                <h5>CALL US</h5>
+                <p>+91 98765 43210</p>
+              </div>
+            </div>
+            <hr />
+            <div className={styles.contact}>
+              <ClockFill />
+              <div>
+                <h5>BUSINESS HOURS</h5>
+                <p>Always Open</p>
+              </div>
             </div>
           </div>
         </div>
-      </CustomContainer>
-      <nav>
-        <Link href="#" className={styles.active}>
-          Home
-        </Link>
-        {/* <Link href="#">Home</Link> */}
-        <Link href="#">About</Link>
-        {/* <Link href="#">Home</Link> */}
-        <Link href="#">Contact Us</Link>
-      </nav>
+        <div className={styles.r_bottom}>
+          <Link href="#" className={styles.active}>
+            Home
+          </Link>
+          <Link href="#">About</Link>
+          <Link href="#">Silage</Link>
+          <Link href="#">Gallery</Link>
+          <Link href="#">Contact</Link>
+        </div>
+      </div>
     </header>
   );
 };

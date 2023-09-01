@@ -7,9 +7,12 @@
   margin-bottom: 10px;
 
   .message {
-    background-color: #eaeaea;
+    background-color: $color_light_green;
+    font-weight: 600;
     padding: 10px 20px 5px 10px;
-    border-radius: 10px 10px 0 10px;
+    border-radius: 15px 15px 15px 0px;
+    color: $color_dark_green;
+
     max-width: 80%;
     // word-wrap: break-word;
     box-shadow: 2px 2px 5px 1px rgba(128, 128, 128, 0.352);
@@ -37,8 +40,10 @@
     flex-direction: row-reverse;
 
     .message {
-      background-color: $color_blue;
+      background-color: $color_dark_green;
       color: white;
+      border-radius: 15px 15px 0 15px;
+      font-weight: 400;
     }
 
     small {
