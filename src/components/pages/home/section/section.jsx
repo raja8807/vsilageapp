@@ -8,7 +8,7 @@ const CustomSection = (props) => {
 
   return (
     <section className={styles.section}>
-      {heading && <h1>About Us</h1>}
+      {heading && <h1>{heading}</h1>}
       <CustomContainer>{children}</CustomContainer>
     </section>
   );

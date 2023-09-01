@@ -1,4 +1,5 @@
 import AboutUs from "./about_us/about_us";
+import OurTeam from "./our-team/our-team";
 
 const { default: Banner } = require("./banner/banner");
 
@@ -7,6 +8,7 @@ const HomeScreen = () => {
     <>
       <Banner />
       <AboutUs />
+      <OurTeam/>
     </>
   );
 };

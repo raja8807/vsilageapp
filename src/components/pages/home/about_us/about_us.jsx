@@ -1,106 +1,40 @@
-import { Col, Image, Row } from "react-bootstrap";
-import CustomSection from "../section/section";
+import CustomContainer from "@/components/ui/custom_container/custom_container";
 import styles from "./about_us.module.scss";
+import { Col, Row } from "react-bootstrap";
+import CustomButton from "@/components/ui/custom_container/custom_button/custom_button";
 
 const AboutUs = () => {
   return (
-    <CustomSection heading="About Us">
-      <div className={styles.about}>
-        <p>
-          PromaizeTM Baled Corn Silage/Maize Silage by Punjab Silage Private
-          Limited - Most Trusted Corn Silage Manufacturer in India. We offer the
-          highest quality Corn Silage in compact bales for cows.
-        </p>
-        <br />
-        <br />
+    <div className={styles.aboutUs}>
+      <div className={styles.overlay} />
+      <CustomContainer>
         <Row>
-          <Col>
-            <h2>Our Mission</h2>
+          <Col className={styles.left} md={6}>
+            <h2>About Us</h2>
             <p>
-              To help Indian Dairy Farmers achieve higher efficiency and
-              productivity of their farms by providing high quality products and
-              services.
+              <b>Vsilage</b> is a highly innovative company with a single goal
+              to promote Baled Silage as a solution for fodder crisis in India.
+              The company is involved in supplying of Silage Bales to dairy
+              farmers, Co-operatives, Animal Husbandry/Government and is into
+              manufacturing & selling of Silage Baling Machines along with
+              supply of necessary consumables.
             </p>
+            <CustomButton>Know More</CustomButton>
           </Col>
-          <Col>
-            <Image src="/images/about/corn1.jpg" alt="about_1" fluid />
+          <Col md={6} className={styles.right}>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/ObKA4joLTjY?si=i0z3TMDWYI_9cyw0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
           </Col>
         </Row>
-        <br />
-        <br />
-        <Row>
-          <Col>
-            <Image src="/images/about/corn1.jpg" alt="about_1" fluid />
-          </Col>
-          <Col>
-            <h2>Our Vision</h2>
-            <p>
-              To supply highest quality corn silage all over India that is
-              nutritious and free from toxins. It is our ambition to help dairy
-              farmers reduce their overall feeding cost and increase their
-              income in a sustainable manner.
-            </p>
-          </Col>
-        </Row>
-        <br />
-        
-          <p>
-            Feeding high energy corn silage will increase milk of cows and other
-            dairy animals. We offer corn silage at the best price all year
-            round. Call now for home delivery of corn silage in Punjab, Haryana,
-            Rajasthan, Gujarat MP, UP etc.
-          </p>
-       
-      </div>
-
-      <div className={styles.about}>
-        <p>
-          PromaizeTM Baled Corn Silage/Maize Silage by Punjab Silage Private
-          Limited - Most Trusted Corn Silage Manufacturer in India. We offer the
-          highest quality Corn Silage in compact bales for cows.
-        </p>
-        <br />
-        <br />
-        <Row>
-          <Col>
-            <h2>Our Mission</h2>
-            <p>
-              To help Indian Dairy Farmers achieve higher efficiency and
-              productivity of their farms by providing high quality products and
-              services.
-            </p>
-          </Col>
-          <Col>
-            <Image src="/images/about/corn1.jpg" alt="about_1" fluid />
-          </Col>
-        </Row>
-        <br />
-        <br />
-        <Row>
-          <Col>
-            <Image src="/images/about/corn1.jpg" alt="about_1" fluid />
-          </Col>
-          <Col>
-            <h2>Our Vision</h2>
-            <p>
-              To supply highest quality corn silage all over India that is
-              nutritious and free from toxins. It is our ambition to help dairy
-              farmers reduce their overall feeding cost and increase their
-              income in a sustainable manner.
-            </p>
-          </Col>
-        </Row>
-        <br />
-        
-          <p>
-            Feeding high energy corn silage will increase milk of cows and other
-            dairy animals. We offer corn silage at the best price all year
-            round. Call now for home delivery of corn silage in Punjab, Haryana,
-            Rajasthan, Gujarat MP, UP etc.
-          </p>
-       
-      </div>
-    </CustomSection>
+      </CustomContainer>
+    </div>
   );
 };
 

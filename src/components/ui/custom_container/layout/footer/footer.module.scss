@@ -1,0 +1,119 @@
+.footer {
+  background-color: $color_dark_green;
+  padding: 20px 0;
+
+  * {
+    color: white;
+  }
+
+  .top{
+    border-bottom: 1px solid $color_light_green;
+    padding-bottom: 30px;
+    .brand {
+        padding: 20px 20px 0 0;
+        img {
+          width: 150px;
+        }
+    
+        p {
+          opacity: 0.8;
+          font-weight: 100;
+          font-size: 15px;
+          margin-top: 20px;
+        }
+      }
+    
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    
+        .strip {
+          width: 40px;
+          height: 8px;
+          background-color: $color_light_green;
+        }
+    
+        h5 {
+          margin: 0;
+        }
+        a {
+          text-decoration: none;
+          font-weight: 200;
+    
+          &:hover {
+            color: $color_light_green;
+          }
+        }
+      }
+    
+      .contact {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 20px;
+    
+        > div {
+          font-weight: 200;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+    
+          &.address {
+            align-items: flex-start;
+            svg {
+              margin-top: 4px;
+            }
+          }
+        }
+        .strip {
+          width: 40px;
+          height: 8px;
+          background-color: $color_light_green;
+        }
+    
+        h5 {
+          margin: 0;
+        }
+      }
+  }
+
+  .bottom {
+    // height: 100px;
+    padding-top: 10px;
+    // padding-bottom: 10px;
+
+    >div{
+        @include flexCenter;
+        flex-direction: column;
+        gap: 10px;
+        p{
+            font-size: 14px;
+        }
+    }
+
+    .social {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        > div {
+          border: 1px solid rgba(255, 255, 255, 0.5);
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          @include flexCenter;
+          color: white;
+          cursor: pointer;
+          &:hover {
+            border: 1px solid white;
+            color: $color_light_green;
+          }
+          svg {
+            font-size: 14px;
+          }
+        }
+      }
+  }
+}

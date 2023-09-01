@@ -1,14 +1,14 @@
 .custom_button {
   border: none;
-  background-color: $color_blue;
+  background-color: $color_light_green;
   color: white;
-  padding: 4px 14px;
-  border-radius: 13px;
-  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
 
   &:hover {
-    background-color: $color_yellow;
-    color: black;
+    background-color: $color_dark_green;
+    // color: ;
   }
 
   // color: white;z-index: 100;

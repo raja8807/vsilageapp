@@ -1,11 +1,49 @@
-.about {
-  // background-color: red;
-//   height: 100vh;
+.aboutUs {
+  background-image: url("/images/banner/bg.jpg");
+  background-color: #cccccc;
+  padding: 40px 0;
+  // height: 400px;
+  position: relative;
 
-  h2 {
-    font-size: 22px;
-    text-decoration: underline;
-    color: $color_blue;
-    margin-bottom: 12px;
+  .overlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 0;
+  }
+
+  .left {
+    z-index: 10;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    button {
+      width: fit-content;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    h2 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 30px;
+    }
+  }
+
+  .right {
+    
+    @include flexCenter;
+    z-index: 1;
+
+    @include respond-below(md){
+      margin-top: 30px;
+    }
   }
 }

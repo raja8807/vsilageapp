@@ -1,0 +1,16 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 18px;
+
+    &:hover,
+    &.active {
+      color: $color_light_green;
+    }
+  }
+}

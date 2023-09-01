@@ -118,8 +118,6 @@
         &.active {
           color: $color_light_green;
         }
-
-        // margin: 0;
       }
     }
   }
@@ -129,15 +127,21 @@
   @include respond-below(lg) {
     display: unset;
     .lg_top {
-      display: flex;
       background-color: $color_dark_green;
       border-bottom: 3px solid $color_light_green;
-      justify-content: center;
-      padding: 10px 0;
       color: white;
+     
+      @include flexCenter;
+      gap: 50px;
+      
+      @include respond-below(md){
+        flex-direction: column;
+        gap: 0;
+      }
+      
 
       p{
-        margin: 0;
+        margin: 0 !important;
         font-weight: 100;
       }
     }
@@ -152,6 +156,7 @@
       img {
         margin: 0 20px;
         padding: 10px;
+        width: 100px;
       }
 
       > div {

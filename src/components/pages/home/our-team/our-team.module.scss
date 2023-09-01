@@ -1,0 +1,37 @@
+.our_team {
+  background-color: #f4f4f4;
+
+  .team_body {
+    padding: 20px 0;
+  }
+
+  .team_card {
+    padding: 20px 0;
+
+    @include respond-below(md) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    img {
+      width: 150px;
+    }
+    
+    h5 {
+      margin: 10px 0 0px 0;
+    }
+
+    small {
+      font-size: 13px;
+      font-weight: 600;
+      color: $color_light_green !important;
+    }
+
+    p {
+      font-size: 15px;
+      margin-top: 4px;
+    }
+  }
+}
