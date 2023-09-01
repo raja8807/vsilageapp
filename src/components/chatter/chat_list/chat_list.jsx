@@ -6,6 +6,7 @@ const ChatList = (props) => {
 
   // const [chatListData, setChatListData] = useState([]);
   useEffect(() => {
+    fetchChats()
     const interval = setInterval(()=>{
       fetchChats();
     },5000)
