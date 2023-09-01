@@ -103,6 +103,7 @@ const ChatBox = (props) => {
         tempId,
         ...newChat,
         status: "pending",
+        createdAt: new Date()
       },
     ]);
 
