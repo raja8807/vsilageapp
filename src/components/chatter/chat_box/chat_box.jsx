@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./chat_box.module.scss";
 import Chat from "./chat/chat";
 import { useSession } from "next-auth/react";
-import { fetchData } from "next-auth/client/_utils";
 
 const ChatBox = (props) => {
   const { currentChatEmail, chats, isUser, fetchChats } = props;
