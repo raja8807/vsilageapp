@@ -11,20 +11,29 @@
       display: none;
     }
 
-    .logo_text{
-      h1{
+    .logo_text {
+      h1 {
         font-size: 30px;
         margin: 0;
-        color: #d22109 ;
+        color: #d22109;
         letter-spacing: -1px;
+
         // text-shadow: 2px 2px 1px rgba(128, 128, 128, 0.4);
-        
       }
-  
-      p{
+
+      p {
         margin: 0;
         // font-size: 14px;
         color: $color_dark_green;
+      }
+
+      @include respond-below(md) {
+        h1 {
+          font-size: 20px;
+        }
+        p {
+          font-size: 10px;
+        }
       }
     }
     img {
@@ -160,6 +169,7 @@
       p {
         margin: 0 !important;
         font-weight: 100;
+        font-size: 12px;
       }
     }
     .left {
@@ -169,7 +179,7 @@
       width: 100%;
 
       img {
-        margin: 0 20px;
+        margin: 0px;
         padding: 10px;
         width: 100px;
       }
@@ -183,6 +193,7 @@
     }
     .right {
       display: none;
+      
     }
   }
 }

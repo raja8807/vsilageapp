@@ -11,6 +11,8 @@ const Chat = (props) => {
 
   const createdAt = new Date(chat.createdAt);
 
+  // console.log(chat);
+
   const getIcon = () => {
     if (chat.status === "success") {
       return chat.isRead ? (
@@ -39,15 +41,16 @@ const Chat = (props) => {
     <div className={`${styles.chat} ${isCurrentUser && styles.isAdmin}`}>
       <pre className={styles.message}>
         {chat.message}
-        <small>
-          {`${createdAt.getDate()}.${createdAt.getMonth()}.${createdAt
-            .getFullYear()
-            .toString()
-            .slice("2")}`}{" "}
-          -{`${createdAt.getHours()}:${createdAt.getMinutes()}`}
-          {/* 10-10-23 10:20  */}
-          {isCurrentUser && getIcon()}
-        </small>
+        {chat.createdAt && (
+          <small>
+            {`${createdAt.getDate()}.${createdAt.getMonth()}.${createdAt
+              .getFullYear()
+              .toString()
+              .slice("2")}`}{" "}
+            -{`${createdAt.getHours()}:${createdAt.getMinutes()}`}
+            {isCurrentUser && getIcon()}
+          </small>
+        )}
       </pre>
     </div>
   );

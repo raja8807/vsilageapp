@@ -1,4 +1,4 @@
-import { ChatDots, ChatLeftDots } from "react-bootstrap-icons";
+import { ChatDots, ChatLeftDots, X } from "react-bootstrap-icons";
 import styles from "./chatter.module.scss";
 import { useEffect, useState } from "react";
 import ChatterDrawer from "./chatter_drawer/chatter-drawer";
@@ -8,9 +8,15 @@ const Chatter = () => {
 
   const [hasNotifiaction, setHasNotifiaction] = useState(false);
 
+  const [showPopup, setShowPopup] = useState(false);
+
   const session = useSession();
 
-  console.log(hasNotifiaction);
+  useEffect(() => {
+    setTimeout(() => {
+      setShowPopup(true);
+    }, 5000);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,12 +67,19 @@ const Chatter = () => {
       <div
         className={styles.openChatButton}
         onClick={() => {
+          setShowPopup(false)
           setShowChatBox(true);
         }}
       >
         <div className={styles.wrap}>
+          {showPopup && (
+            <div className={styles.pop}>
+              Chat Whit Us
+              <X />
+            </div>
+          )}
           {hasNotifiaction && <div className={styles.bubble}></div>}
-          <ChatLeftDots />
+          <ChatDots />
         </div>
       </div>
     </>

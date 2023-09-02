@@ -1,9 +1,17 @@
-import styles from './custom_button.module.scss'
+import styles from "./custom_button.module.scss";
 
-const CustomButton = (props)=>{
-    const {children} = props
+const CustomButton = (props) => {
+  const { children, type, clickHandler = () => {} } = props;
 
-    return <button className={styles.custom_button}>{children}</button>
-}
+  return (
+    <button
+      type={type || "button"}
+      className={styles.custom_button}
+      onClick={clickHandler}
+    >
+      {children}
+    </button>
+  );
+};
 
-export default CustomButton
+export default CustomButton;

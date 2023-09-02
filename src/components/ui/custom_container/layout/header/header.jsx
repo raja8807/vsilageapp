@@ -17,6 +17,7 @@ import {
 } from "react-bootstrap-icons";
 import Link from "next/link";
 import HeaderDrawer from "./header-drawer/header-drawer";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -41,30 +42,39 @@ const Header = () => {
     {
       id: "about",
       name: "About",
-      href: "/",
+      href: "/about",
     },
     {
       id: "silage",
       name: "Silage",
-      href: "/",
+      href: "/silage",
     },
 
     {
       id: "gallery",
       name: "Gallery",
-      href: "/",
+      href: "/gallery",
+    },
+    {
+      id: "careers",
+      name: "Careers",
+      href: "/careers",
     },
     {
       id: "contact",
       name: "Contact",
-      href: "/",
+      href: "/contact",
     },
     {
       id: "login",
       name: "Login",
-      href: "/",
+      href: "/login",
     },
   ];
+
+  const router = useRouter();
+
+  // console.log();
 
   return (
     <>
@@ -76,7 +86,9 @@ const Header = () => {
         <div className={styles.left}>
           <Image src="/images/logo/logo.png" fluid alt="logo" />
           <section className={styles.logo_text}>
-            <h1><b>VILATHIKULAM</b></h1>
+            <h1>
+              <b>VILATHIKULAM</b>
+            </h1>
             <p>Farmers Producer Company.</p>
           </section>
           <div
@@ -129,7 +141,15 @@ const Header = () => {
           </div>
           <div className={styles.r_bottom}>
             {navLinks.map((link) => (
-              <Link href={link.href} key={link.id}>
+              <Link
+                href={link.href}
+                key={link.id}
+                className={
+                  router?.pathname === link?.href
+                    ? styles.active
+                    : styles.inactive
+                }
+              >
                 {link.name}
               </Link>
             ))}

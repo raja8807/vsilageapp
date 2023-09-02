@@ -1,43 +1,53 @@
-// .chat_box {
-//   border-radius: 10px;
-//   z-index: 20;
-//   position: fixed;
-//   right: 20px;
-//   bottom: 20px;
-//   z-index: 100;
-//   &.shown {
-//     background: wheat;
-//     // height: 500px;
-//   }
+
 
 .openChatButton {
   background-color: $color_light_green;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 50% 5px 50% 50%;
   @include flexCenter;
   position: fixed;
   right: 20px;
   bottom: 20px;
   cursor: pointer;
   color: $color_dark_green;
+
   font-size: 28px;
   z-index: 100;
+  border: 3px solid $color_dark_green;
 
   .wrap {
     position: relative;
+
+    .pop {
+      background-color: white;
+      color: black;
+      font-size: 14px;
+      position: absolute;
+      width: fit-content;
+      padding: 4px 4px 4px 10px;
+      left: -100px;
+      top: -10px;
+      @include flexCenter;
+      border-radius: 10px;
+      box-shadow: 1px 1px 5px 2px rgb(77, 77, 77);
+      display: none;
+    }
+
+    svg {
+      margin-bottom: 8px;
+    }
   }
 
   .bubble {
     position: absolute;
-    height: 18px;
-    width: 18px;
+    height: 12px;
+    width: 12px;
     background-color: $color_dark_green;
     border-radius: 50%;
-    top: -10px;
-    right: -14px;
+    top: 5px;
+    right: -2px;
     @include flexCenter;
     font-size: 10px;
-    color: $color_light_green;
   }
 }

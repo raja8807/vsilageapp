@@ -1,0 +1,35 @@
+.upload_application {
+  form {
+    background-color: white;
+    padding: 10px;
+
+    label {
+      width: 125px;
+    }
+  }
+
+  input[type="file"] {
+    // background-color: red;
+    width: 300px;
+  }
+
+  .submitted {
+    background-color: white;
+    height: 200px;
+    @include respond-below(md) {
+      font-size: 14px;
+      text-align: center;
+    }
+    @include flexCenter;
+    flex-direction: column;
+    gap: 20px;
+    svg {
+      font-size: 50px;
+      color: $color_light_green;
+    }
+  }
+
+  .inputError{
+    border: 1px solid red;
+  }
+}

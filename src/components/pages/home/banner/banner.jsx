@@ -5,24 +5,29 @@ import CustomButton from "@/components/ui/custom_container/custom_button/custom_
 const Banner = () => {
   return (
     <div className={styles.banner}>
-       <Carousel >
+      <Carousel>
         <Carousel.Item className={styles.item}>
           <div className={styles.overlay} />
-          <Image src="/images/banner/1.jpg" fluid alt="img_banner"/>
+          <Image src="/images/banner/1.jpg" fluid alt="img_banner" />
           <Carousel.Caption className={styles.caption}>
             <h1>VSilage</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, fugiat?</p>
-            
+            <p>
+              VIFPRO Silage Bales are made using world-class technology to
+              ensure best quality chopping and compaction
+            </p>
+
             <CustomButton>Contact Us</CustomButton>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item className={styles.item}>
           <div className={styles.overlay} />
-          <Image src="/images/banner/2.jpg" fluid alt="img_banner"/>
+          <Image src="/images/banner/2.jpg" fluid alt="img_banner" />
           <Carousel.Caption className={styles.caption}>
             <h1>VSilage</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, fugiat?</p>
-            
+            <p>
+              .Top quality cattle feed to ensure high yield & good quality milk
+              throughout the year
+            </p>
 
             <CustomButton>Contact Us</CustomButton>
           </Carousel.Caption>
@@ -30,11 +35,23 @@ const Banner = () => {
 
         <Carousel.Item className={styles.item}>
           <div className={styles.overlay} />
-          <Image src="/images/banner/3.jpg" fluid alt="img_banner"/>
+          <Image src="/images/banner/3.jpg" fluid alt="img_banner" />
           <Carousel.Caption className={styles.caption}>
             <h1>VSilage</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, fugiat?</p>
-            
+            <p>Highly Nutritious feed for cows,goat,& sheep</p>
+
+            <CustomButton>Contact Us</CustomButton>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+        <Carousel.Item className={styles.item}>
+          <div className={styles.overlay} />
+          <Image src="/images/banner/2.jpg" fluid alt="img_banner" />
+          <Carousel.Caption className={styles.caption}>
+            <h1>VSilage</h1>
+            <p>
+              Highly nutritious cattle feed with more than 12 months shelf-life
+            </p>
 
             <CustomButton>Contact Us</CustomButton>
           </Carousel.Caption>

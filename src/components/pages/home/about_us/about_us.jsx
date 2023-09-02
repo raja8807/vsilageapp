@@ -27,9 +27,9 @@ const AboutUs = () => {
               height="315"
               src="https://www.youtube.com/embed/ObKA4joLTjY?si=i0z3TMDWYI_9cyw0"
               title="YouTube video player"
-              frameborder="0"
+              // frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
+              // allowfullscreen
             ></iframe>
           </Col>
         </Row>

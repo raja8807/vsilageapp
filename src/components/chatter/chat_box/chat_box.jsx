@@ -80,7 +80,7 @@ const ChatBox = (props) => {
   }, [isUser]);
 
   useEffect(() => {
-    scrollRef?.current?.scrollIntoView({ behavior: "smooth" });
+    scrollRef?.current?.scrollIntoView({ behavior: "instant" });
 
     if (!isUser) {
       setHasNotifiaction(chatListData?.some((c) => c.unreadMessageCount > 0));
@@ -113,6 +113,7 @@ const ChatBox = (props) => {
       };
     }
     const tempId = Math.random();
+
     setChatData((prev) => [
       ...prev,
       {
@@ -128,15 +129,12 @@ const ChatBox = (props) => {
       body: JSON.stringify(newChat),
       headers: {
         "Content-Type": "application/json",
-        // 'Content-Type': 'application/x-www-form-urlencoded',
       },
     });
 
     setChatData((prev) => {
       const prevChats = [...prev];
-
       const index = prevChats.findIndex((c) => c.tempId === tempId);
-
       prevChats[index] = {
         ...prevChats[index],
         status: res.status === 200 ? "success" : "failed",
@@ -160,9 +158,17 @@ const ChatBox = (props) => {
   return (
     <>
       <div className={`${styles.chatter} `}>
+        {!session.data && (
+          <Chat
+            chat={{
+              message:
+                "Hello there! Need help? Reach out to us right here, and we'll get back to you as soon as we can!",
+            }}
+          />
+        )}
         {chatData.map((chat) => (
           <Chat
-            key={chat.id}
+            key={chat._id || chat.tempId}
             isCurrentUser={getIsCurrentUser(chat.senderEmail)}
             chat={chat}
           />
