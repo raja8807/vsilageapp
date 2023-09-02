@@ -5,7 +5,15 @@ import Chat from "./chat/chat";
 import { useSession } from "next-auth/react";
 
 const ChatBox = (props) => {
-  const { currentChatEmail, chats, isUser, fetchChats,setChatListData } = props;
+  const {
+    currentChatEmail,
+    chats,
+    isUser,
+    fetchChats,
+    setChatListData,
+    setHasNotifiaction,
+    chatListData,
+  } = props;
 
   const session = useSession();
   const [chatData, setChatData] = useState(
@@ -35,12 +43,12 @@ const ChatBox = (props) => {
   }, [chats]);
 
   const updateAdminChatsAsRead = async () => {
-    setChatListData((prev)=>{
-      const list = [...prev]
-      const index = prev.findIndex(cr=>cr.senderEmail === currentChatEmail)
-      list[index].unreadMessageCount = 0
-      return list
-    })
+    setChatListData((prev) => {
+      const list = [...prev];
+      const index = prev.findIndex((cr) => cr.senderEmail === currentChatEmail);
+      list[index].unreadMessageCount = 0;
+      return list;
+    });
     await fetch("api/chat/updateChat?email=" + currentChatEmail);
   };
 
@@ -54,7 +62,9 @@ const ChatBox = (props) => {
     };
     if (isUser) {
       fetchData();
+      setHasNotifiaction(false);
     } else {
+      updateAdminChatsAsRead();
       fetchChats();
     }
     const interval = setInterval(() => {
@@ -71,6 +81,16 @@ const ChatBox = (props) => {
 
   useEffect(() => {
     scrollRef?.current?.scrollIntoView({ behavior: "smooth" });
+
+    if (!isUser) {
+      setHasNotifiaction(chatListData?.some((c) => c.unreadMessageCount > 0));
+    }
+
+    return () => {
+      if (!isUser) {
+        setHasNotifiaction(chatListData?.some((c) => c.unreadMessageCount > 0));
+      }
+    };
   }, [chatData]);
 
   const sendChat = async () => {

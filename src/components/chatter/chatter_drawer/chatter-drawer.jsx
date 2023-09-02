@@ -10,8 +10,10 @@ import { signOut } from "next-auth/react";
 const { Offcanvas } = require("react-bootstrap");
 
 const ChatterDrawer = (props) => {
-  const { show, setShow } = props;
+  const { show, setShow,setHasNotifiaction } = props;
   const handleClose = () => setShow(false);
+
+  
 
   const session = useSession();
 
@@ -54,6 +56,7 @@ const ChatterDrawer = (props) => {
 
   useEffect(() => {
     setCurrentUserEmail(sessionStorage.getItem("currentUserEmail"));
+   
   }, []);
 
   const [currentChatEmail, setCurrentChatEmail] = useState(null);
@@ -105,7 +108,7 @@ const ChatterDrawer = (props) => {
         )}
 
         {!isAuthenticated && currentUserEmail && (
-          <ChatBox currentChatEmail={currentUserEmail} isUser={true} />
+          <ChatBox currentChatEmail={currentUserEmail} isUser={true} setHasNotifiaction={setHasNotifiaction}/>
         )}
 
         {isAuthenticated && !currentChatEmail && (
@@ -116,6 +119,7 @@ const ChatterDrawer = (props) => {
             fetchChats={fetchChats}
             chatListData={chatListData}
             setChatListData={setChatListData}
+            setHasNotifiaction={setHasNotifiaction}
           />
         )}
 
@@ -125,6 +129,8 @@ const ChatterDrawer = (props) => {
             chats={chats}
             fetchChats={fetchChats}
             setChatListData={setChatListData}
+            setHasNotifiaction={setHasNotifiaction}
+            chatListData={chatListData}
           />
         )}
       </Offcanvas.Body>
