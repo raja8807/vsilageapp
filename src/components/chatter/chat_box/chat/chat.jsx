@@ -1,4 +1,9 @@
-import { Check, Clock, ExclamationCircle } from "react-bootstrap-icons";
+import {
+  Check,
+  CheckAll,
+  Clock,
+  ExclamationCircle,
+} from "react-bootstrap-icons";
 import styles from "./chat.module.scss";
 
 const Chat = (props) => {
@@ -8,8 +13,13 @@ const Chat = (props) => {
 
   const getIcon = () => {
     if (chat.status === "success") {
-      return <Check style={{ color: "skyblue", fontSize: "14px" }} />;
+      return chat.isRead ? (
+        <CheckAll style={{ color: "skyblue", fontSize: "14px" }} />
+      ) : (
+        <Check style={{ color: "skyblue", fontSize: "14px" }} />
+      );
     }
+
     if (chat.status === "pending") {
       return <Clock />;
     }
@@ -17,7 +27,12 @@ const Chat = (props) => {
     if (chat.status === "failed") {
       return <ExclamationCircle style={{ color: "red" }} />;
     }
-    return <Check style={{ color: "skyblue", fontSize: "14px" }} />;
+
+    return chat.isRead ? (
+      <CheckAll style={{ color: "skyblue", fontSize: "14px" }} />
+    ) : (
+      <Check style={{ color: "skyblue", fontSize: "14px" }} />
+    );
   };
 
   return (

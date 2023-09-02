@@ -33,12 +33,22 @@ const ChatterDrawer = (props) => {
     const x = unique.map((u) =>
       allchats.filter((c) => c.senderEmail === u || c.recieverEmail === u)
     );
-    const chatList = x.map((c, i) => ({
-      senderEmail: c[0].senderEmail,
-      lastMessage: c[c.length - 1].message,
-    }));
+    const chatList = x.map((c, i) => {
+      return {
+        senderEmail: c[0].senderEmail,
+        lastMessage: c[c.length - 1].message,
+        lastMessageTime: c[c.length - 1].createdAt,
+        unreadMessageCount: c.filter((c) => c.isRead === false).length,
+      };
+    });
     setChatListData(
-      chatList.filter((c) => c.senderEmail !== session?.data?.user?.email)
+      chatList
+        .filter((c) => c.senderEmail !== session?.data?.user?.email)
+        .sort((x, y) => {
+          return new Date(x.lastMessageTime) < new Date(y.lastMessageTime)
+            ? 1
+            : -1;
+        })
     );
   };
 
@@ -66,13 +76,14 @@ const ChatterDrawer = (props) => {
 
         {isAuthenticated && !currentChatEmail && (
           <>
-           
-           <p
-           onClick={async () => {
-            await signOut();
-          }}
-          style={{cursor:'pointer'}}
-           >Logout</p>
+            <p
+              onClick={async () => {
+                await signOut();
+              }}
+              style={{ cursor: "pointer" }}
+            >
+              Logout
+            </p>
             All Chats
           </>
         )}
@@ -113,6 +124,7 @@ const ChatterDrawer = (props) => {
             currentChatEmail={currentChatEmail}
             chats={chats}
             fetchChats={fetchChats}
+            setChatListData={setChatListData}
           />
         )}
       </Offcanvas.Body>

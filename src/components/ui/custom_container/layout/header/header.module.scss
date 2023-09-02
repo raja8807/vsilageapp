@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  height: 140px;
+  height: 120px;
 
   .left {
     width: fit-content;
@@ -10,10 +10,28 @@
     > div {
       display: none;
     }
+
+    .logo_text{
+      h1{
+        font-size: 30px;
+        margin: 0;
+        color: #d22109 ;
+        letter-spacing: -1px;
+        // text-shadow: 2px 2px 1px rgba(128, 128, 128, 0.4);
+        
+      }
+  
+      p{
+        margin: 0;
+        // font-size: 14px;
+        color: $color_dark_green;
+      }
+    }
     img {
-      width: 150px;
+      width: 100px;
       height: auto;
-      margin: 0 50px;
+      // margin: 0 50px;
+      margin-left: 90px;
     }
   }
 
@@ -21,14 +39,14 @@
     width: 100%;
     .r_top {
       width: 100%;
-      height: 70px;
+      height: 60px;
       position: relative;
       display: flex;
 
       .content {
         background-color: $color_dark_green;
         width: 100%;
-        margin-left: 70px;
+        margin-left: 60px;
         border-bottom: 3px solid $color_light_green;
         display: flex;
         align-items: center;
@@ -91,17 +109,17 @@
       .over {
         position: absolute;
         background-color: $color_dark_green;
-        height: 99px;
-        width: 99px;
+        height: 89px;
+        width: 89px;
         transform: rotate(45deg);
-        top: -50px;
-        left: 19px;
+        top: -47px;
+        left: 15px;
         border-bottom: 3px solid $color_light_green;
       }
     }
 
     .r_bottom {
-      height: 70px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -130,17 +148,16 @@
       background-color: $color_dark_green;
       border-bottom: 3px solid $color_light_green;
       color: white;
-     
+
       @include flexCenter;
       gap: 50px;
-      
-      @include respond-below(md){
+
+      @include respond-below(md) {
         flex-direction: column;
         gap: 0;
       }
-      
 
-      p{
+      p {
         margin: 0 !important;
         font-weight: 100;
       }
@@ -150,8 +167,6 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
-
-      
 
       img {
         margin: 0 20px;

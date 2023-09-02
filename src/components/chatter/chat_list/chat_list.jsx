@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import ChatRow from "./chat_row/chat_row";
 
 const ChatList = (props) => {
-  const { setCurrentChatEmail, setChats, adminEmail,fetchChats,chatListData,setChatListData } = props;
+  const { setCurrentChatEmail, fetchChats, chatListData } = props;
 
   // const [chatListData, setChatListData] = useState([]);
   useEffect(() => {
-    fetchChats()
-    const interval = setInterval(()=>{
+    fetchChats();
+    const interval = setInterval(() => {
       fetchChats();
-    },5000)
+    }, 5000);
 
-    return ()=> clearInterval(interval)
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -22,6 +22,8 @@ const ChatList = (props) => {
           senderEmail={data.senderEmail}
           lastMessage={data.lastMessage}
           setCurrentChatEmail={setCurrentChatEmail}
+          unreadMessageCount={data?.unreadMessageCount}
+          lastMessageTime={data?.lastMessageTime}
         />
       ))}
     </>

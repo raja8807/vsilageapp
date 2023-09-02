@@ -9,11 +9,14 @@
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
   /* border-radius: 10px; */
+  /* background-color: #102e19; */
+  /* background-color: #9cc212; */
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #2b3c85;
+  background: #9cc212;
+  /* background: #102e19; */
   border-radius: 10px;
 }
 

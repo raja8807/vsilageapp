@@ -5,7 +5,7 @@ import Chat from "./chat/chat";
 import { useSession } from "next-auth/react";
 
 const ChatBox = (props) => {
-  const { currentChatEmail, chats, isUser, fetchChats } = props;
+  const { currentChatEmail, chats, isUser, fetchChats,setChatListData } = props;
 
   const session = useSession();
   const [chatData, setChatData] = useState(
@@ -34,33 +34,34 @@ const ChatBox = (props) => {
     }
   }, [chats]);
 
-  useEffect(() => {
-    // let interval;
-    // if (isUser) {
-    const fetchData = async () => {
-      const res = await fetch("api/chat/getChatList");
-      const data = await res.json();
-      setChatData(
-        data.filter(
-          (c) =>
-            c.senderEmail === currentChatEmail ||
-            c.recieverEmail === currentChatEmail
-        )
-      );
-    };
-    // fetchData();
+  const updateAdminChatsAsRead = async () => {
+    setChatListData((prev)=>{
+      const list = [...prev]
+      const index = prev.findIndex(cr=>cr.senderEmail === currentChatEmail)
+      list[index].unreadMessageCount = 0
+      return list
+    })
+    await fetch("api/chat/updateChat?email=" + currentChatEmail);
+  };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(
+        "api/chat/getUserChats?email=" + currentChatEmail
+      );
+      const data = await res.json();
+      setChatData(data);
+    };
     if (isUser) {
       fetchData();
     } else {
       fetchChats();
     }
-    // }
-
     const interval = setInterval(() => {
       if (isUser) {
         fetchData();
       } else {
+        updateAdminChatsAsRead();
         fetchChats();
       }
     }, 5000);
@@ -91,18 +92,14 @@ const ChatBox = (props) => {
         isRead: false,
       };
     }
-
-    console.log(newChat);
-
     const tempId = Math.random();
-
     setChatData((prev) => [
       ...prev,
       {
         tempId,
         ...newChat,
         status: "pending",
-        createdAt: new Date()
+        createdAt: new Date(),
       },
     ]);
 

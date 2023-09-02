@@ -9,8 +9,10 @@ import {
   ClockFill,
   Facebook,
   Instagram,
+  Linkedin,
   List,
   TelephoneFill,
+  Twitter,
   Youtube,
 } from "react-bootstrap-icons";
 import Link from "next/link";
@@ -73,6 +75,10 @@ const Header = () => {
         </div>
         <div className={styles.left}>
           <Image src="/images/logo/logo.png" fluid alt="logo" />
+          <section className={styles.logo_text}>
+            <h1><b>VILATHIKULAM</b></h1>
+            <p>Farmers Producer Company.</p>
+          </section>
           <div
             onClick={() => {
               setShowDrawer(true);
@@ -92,6 +98,12 @@ const Header = () => {
                 </div>
                 <div>
                   <Instagram />
+                </div>
+                <div>
+                  <Linkedin />
+                </div>
+                <div>
+                  <Twitter />
                 </div>
                 <div>
                   <Youtube />
