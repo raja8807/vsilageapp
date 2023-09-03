@@ -18,11 +18,22 @@ import {
 import Link from "next/link";
 import HeaderDrawer from "./header-drawer/header-drawer";
 import { useRouter } from "next/router";
+import LoginDrawer from "./login_drawer/login_drawer";
+import { signOut, useSession } from "next-auth/react";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const [showDrawer, setShowDrawer] = useState(false);
+  const [showLoginDrawer, setShowLoginDrawer] = useState(false);
+
+  const session = useSession();
+
+  useEffect(() => {
+    if(session.data){
+      setShowLoginDrawer(false);
+    }
+  }, [session.data]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,38 +49,62 @@ const Header = () => {
       id: "home",
       name: "Home",
       href: "/",
+      onClick: () => setShowDrawer(false),
     },
     {
       id: "about",
       name: "About",
       href: "/about",
+      onClick: () => setShowDrawer(false),
     },
     {
       id: "silage",
       name: "Silage",
       href: "/silage",
+      onClick: () => setShowDrawer(false),
     },
 
     {
       id: "gallery",
       name: "Gallery",
       href: "/gallery",
+      onClick: () => setShowDrawer(false),
     },
     {
       id: "careers",
       name: "Careers",
       href: "/careers",
+      onClick: () => setShowDrawer(false),
     },
-    {
-      id: "contact",
-      name: "Contact",
-      href: "/contact",
-    },
-    {
-      id: "login",
-      name: "Login",
-      href: "/login",
-    },
+    session?.data
+      ? {
+          id: "admin",
+          name: "Admin Portal",
+          href: "/admin",
+          onClick: () => setShowDrawer(false),
+        }
+      : {
+          id: "contact",
+          name: "Contact",
+          href: "/contact",
+          onClick: () => setShowDrawer(false),
+        },
+    session.data
+      ? {
+          id: "logout",
+          name: "Logout",
+          href: "#",
+          onClick: () => signOut(),
+        }
+      : {
+          id: "login",
+          name: "Login",
+          href: "#",
+          onClick: () => {
+            setShowLoginDrawer(true);
+            setShowDrawer(false);
+          },
+        },
   ];
 
   const router = useRouter();
@@ -149,6 +184,11 @@ const Header = () => {
                     ? styles.active
                     : styles.inactive
                 }
+                onClick={() => {
+                  if (link.onClick) {
+                    link.onClick();
+                  }
+                }}
               >
                 {link.name}
               </Link>
@@ -162,6 +202,8 @@ const Header = () => {
         setShow={setShowDrawer}
         navLinks={navLinks}
       />
+
+      <LoginDrawer show={showLoginDrawer} setShow={setShowLoginDrawer} />
     </>
   );
 };

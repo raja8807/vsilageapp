@@ -6,7 +6,7 @@ import styles from "./header-drawer.module.scss";
 import { useRouter } from "next/router";
 
 const HeaderDrawer = (props) => {
-  const { show, setShow, children, navLinks } = props;
+  const { show, setShow,  navLinks } = props;
   const handleClose = () => setShow(false);
 
   const router = useRouter();
@@ -23,6 +23,11 @@ const HeaderDrawer = (props) => {
             className={
               router?.pathname === link?.href ? styles.active : styles.inactive
             }
+            onClick={()=>{
+              if(link.onClick){
+                link.onClick()
+              }
+            }}
           >
             {link.name}
           </Link>

@@ -1,0 +1,21 @@
+.resume_card {
+  > div {
+    // background-color: red;
+    margin: 10px 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    // height: 100px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .top {
+      b {
+        display: inline-block;
+        width: 80px;
+        margin-bottom: 8px;
+      }
+    }
+  }
+}

@@ -9,6 +9,17 @@ export default async function handler(req, res) {
 
 //   console.log(req.body);
 
+if(req.method === 'GET'){
+  try{
+
+    const resumes = await Resume.find()
+    res.status(200).send(resumes)
+
+  }catch(err){
+    res.status(500).send({err:err})
+  }
+}
+
   if (req.method === "POST") {
     try {
       await connectMongoDB();

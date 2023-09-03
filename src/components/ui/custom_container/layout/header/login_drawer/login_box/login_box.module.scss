@@ -1,0 +1,59 @@
+.login_box {
+    height: 100%;
+    width: 100%;
+    @include flexCenter;
+    flex-direction: column;
+    form {
+      @include flexCenter;
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    input {
+      padding: 4px 10px;
+      border-radius: 5px;
+      border: 1px solid grey;
+      outline: none;
+      
+      &:active,&:focus,&:focus-visible{
+        border: 2px solid $color_light_green;
+  
+      }
+  
+      &[type="submit"] {
+        border: none;
+        background-color: $color_light_green;
+        color: white;
+        padding: 7px 20px;
+        border-radius: 5px;
+        font-size: 14px;
+      
+        &:hover {
+          background-color: $color_dark_green;
+          // color: ;
+        }
+        &:disabled {
+          opacity: 0.7;
+        }
+      }
+    }
+  
+    p {
+      font-size: 14px;
+      margin-top: 10px;
+      color: grey;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  
+    &.error {
+      .adminForm {
+        input {
+          &:not([type="submit"]) {
+            border: 2px solid red;
+          }
+        }
+      }
+    }
+  }
+  

@@ -1,6 +1,7 @@
 .header {
   display: flex;
   height: 120px;
+  border-bottom: 2px solid $color_dark_green;
 
   .left {
     width: fit-content;
@@ -133,7 +134,7 @@
       align-items: center;
       justify-content: flex-end;
       padding-right: 15%;
-      gap: 70px;
+      gap: 50px;
 
       a {
         text-decoration: none;

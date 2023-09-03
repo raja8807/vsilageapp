@@ -19,21 +19,24 @@ const UploadApllication = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [exist, setExist] = useState(false);
+  const [fileData, setFileData] = useState(null);
 
   const [formError, setFormError] = useState({
     email: null,
     phone: null,
+    file: null,
   });
 
   function generate_uuidv4() {
-    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
-      /[xy]/g,
-      function (c) {
-        var uuid = (Math.random() * 16) | 0,
-          v = c == "x" ? uuid : (uuid & 0x3) | 0x8;
-        return uuid.toString(16);
-      }
-    );
+    // return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+    //   /[xy]/g,
+    //   function (c) {
+    //     var uuid = (Math.random() * 16) | 0,
+    //       v = c == "x" ? uuid : (uuid & 0x3) | 0x8;
+    //     return uuid.toString(16);
+    //   }
+    // );
+    return Math.floor(1000 + Math.random() * 9000);
   }
 
   function ValidateEmail(mail) {
@@ -88,10 +91,10 @@ const UploadApllication = (props) => {
               })
                 .then((res) => {
                   setIsLoading(false);
-                  setIsSubmitted(true);
                   return res.json();
                 })
                 .then((dbPostedData) => {
+                  setIsSubmitted(dbPostedData.applicationId);
                   fetch("https://formspree.io/f/maygjegz", {
                     method: "POST",
                     body: JSON.stringify({
@@ -143,7 +146,9 @@ const UploadApllication = (props) => {
         <div className={styles.submitted}>
           <Check2Circle />
 
-          <p>Your Resume Has Bess Submitted Succesfully</p>
+          <p>Your Resume Has Been Submitted Succesfully.</p>
+          <p>We Will Get Back To You Soon.</p>
+          <strong>Your Apllication No. is : {isSubmitted}</strong>
           <CustomButton
             clickHandler={() => {
               router.push("/");
@@ -204,6 +209,7 @@ const UploadApllication = (props) => {
                 setApplicantData((prev) => ({ ...prev, name: e.target.value }));
               }}
             />
+
             <br />
             <br />
 
@@ -239,10 +245,42 @@ const UploadApllication = (props) => {
             <br />
             <br />
             <label>Resume</label>
-            <input type="file" required />
+            <input
+              type="file"
+              required
+              accept="application/pdf"
+              onChange={(e) => {
+                setFileData(e.target.files[0]);
+              }}
+            />
+            <small style={{ display: "block" }}>
+              <span style={{ color: "red" }}>
+                <b>Note : </b>
+              </span>
+              Max File Size : <b>2 MB</b>
+            </small>
+
+            {fileData?.size > 1048576 * 2 && (
+              <small style={{ display: "block" }}>
+                <span style={{ color: "red" }}>
+                  File Size Exceeds <b>2 MB</b>
+                </span>
+              </small>
+            )}
+
             <br />
-            <br />
-            <CustomButton type="Submit">Submit</CustomButton>
+            <CustomButton
+              type="Submit"
+              disabled={
+                !applicantData.name ||
+                !applicantData.email ||
+                !applicantData.phone ||
+                !fileData ||
+                fileData?.size > 1048576 * 2
+              }
+            >
+              Submit
+            </CustomButton>
           </form>
         </>
       )}
