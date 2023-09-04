@@ -1,0 +1,28 @@
+.edit_gallery {
+  .success {
+    margin: 20px 0;
+    @include flexCenter;
+    flex-direction: column;
+    svg {
+      font-size: 50px;
+      color: $color_light_green;
+    }
+  }
+}
+.images {
+  display: flex;
+  flex-wrap: wrap;
+
+  .img {
+    position: relative;
+    border: 1px solid black;
+    margin: 10px;
+    svg {
+      position: absolute;
+      color: red;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+    }
+  }
+}

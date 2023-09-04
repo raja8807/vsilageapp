@@ -1,17 +1,10 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { connectMongoDB } from "@/libs/mongoConnect";
-import Chat from "@/models/ChatModel";
 import Resume from "@/models/Resume";
-import { getSession } from "next-auth/react";
 
 export default async function handler(req, res) {
-  // const session = await getSession({req})
-
-//   console.log(req.body);
-
 if(req.method === 'GET'){
   try{
-
     const resumes = await Resume.find()
     res.status(200).send(resumes)
 

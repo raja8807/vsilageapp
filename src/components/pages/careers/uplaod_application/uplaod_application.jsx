@@ -134,6 +134,8 @@ const UploadApllication = (props) => {
 
   const router = useRouter();
 
+  console.log(fileData);
+
   return (
     <div className={styles.upload_application}>
       {isLoading && (
@@ -257,7 +259,7 @@ const UploadApllication = (props) => {
               <span style={{ color: "red" }}>
                 <b>Note : </b>
               </span>
-              Max File Size : <b>2 MB</b>
+              Max File Size : <b>2 MB </b>(only .pdf)
             </small>
 
             {fileData?.size > 1048576 * 2 && (
@@ -276,7 +278,8 @@ const UploadApllication = (props) => {
                 !applicantData.email ||
                 !applicantData.phone ||
                 !fileData ||
-                fileData?.size > 1048576 * 2
+                fileData?.size > 1048576 * 2 ||
+                fileData.type === "application/pdf"
               }
             >
               Submit

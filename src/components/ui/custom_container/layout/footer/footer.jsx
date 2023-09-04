@@ -2,7 +2,7 @@ import { Col, Image, Row } from "react-bootstrap";
 import CustomContainer from "../../custom_container";
 import styles from "./footer.module.scss";
 import Link from "next/link";
-import { EnvelopeAtFill, Facebook, Instagram, PinMap, Telephone, Youtube } from "react-bootstrap-icons";
+import { EnvelopeAtFill, Facebook, Instagram, PinMap, Telephone, Whatsapp, Youtube } from "react-bootstrap-icons";
 
 const Footer = () => {
   const navLinks = [
@@ -70,7 +70,11 @@ const Footer = () => {
               <h5>Contact Us</h5>
               <div>
                 <Telephone />
-                <p>+91 98765 43210</p>
+                <p>+91 74833 77777</p>
+              </div>
+              <div>
+                <Whatsapp />
+                <p>+91 90429 36647</p>
               </div>
               <div>
                 <EnvelopeAtFill />
@@ -79,10 +83,10 @@ const Footer = () => {
               <div className={styles.address}>
                 <PinMap />
                 <div >
-                  <p>Address Line 1,</p>
-                  <p>Address Line 2,</p>
-                  <p>Address Line 3,</p>
-                  <p>Address Line 4.</p>
+                  <p>106H,5D/6 palai road West,</p>
+                  <p>Millerpuram,</p>
+                  <p>Thoothukudi - 628008.</p>
+                 
                 </div>
               </div>
             </div>

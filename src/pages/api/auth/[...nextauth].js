@@ -18,9 +18,6 @@ export default NextAuth({
       async authorize(credentials, req) {
         const { email, password } = credentials;
         const connection = await connectMongoDB();
-
-        console.log(req);
-
         if (connection) {
           const user = await User.findOne({ email });
           if (user.email === email && user.password === password) {

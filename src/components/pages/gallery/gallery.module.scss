@@ -1,0 +1,8 @@
+.gallery_screen {
+  min-height: 80vh;
+
+  .loading {
+    @include flexCenter;
+    height: 50vh;
+  }
+}

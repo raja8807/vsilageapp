@@ -149,11 +149,15 @@
       }
     }
   }
+
   .lg_top {
     display: none;
   }
+
   @include respond-below(lg) {
     display: unset;
+   
+
     .lg_top {
       background-color: $color_dark_green;
       border-bottom: 3px solid $color_light_green;
@@ -194,7 +198,6 @@
     }
     .right {
       display: none;
-      
     }
   }
 }
