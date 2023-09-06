@@ -1,7 +1,16 @@
+import { useEffect, useState } from "react";
+
 import GalleryScreen from "@/components/pages/gallery/gallery";
 
 const GalleryPage = ({data})=>{
-    return <GalleryScreen data={data}/>
+
+const [images,setImages] = useState([])
+
+useEffect(()=>{
+setImages(data)
+},[data])
+
+    return <GalleryScreen data={images}/>
 }
 
 export default GalleryPage;
