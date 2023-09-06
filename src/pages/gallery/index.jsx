@@ -17,7 +17,7 @@ setImages(data)
 
 export default GalleryPage;
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   // Fetch data from external API
   //const res = await fetch(`api/image`)
   //const data = await res.json()
@@ -37,9 +37,11 @@ const imagesTemp = [
     },
   ];
 
+const fetchUrl = `http://${context.req.headers.host}/api/image`;
+
 try{
 
-const res =await axios.get('api/image')
+const res =await axios.get(fetchUrl)
 
   return { props: { data : res.data} }
 }catch(err){
