@@ -57,11 +57,4 @@ data : {JSON.stringify(data)}
 
 export default GalleryScreen;
 
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch(`api/image`)
-  const data = await res.json()
- 
-  // Pass data to the page via props
-  return { props: { data } }
-}
+
