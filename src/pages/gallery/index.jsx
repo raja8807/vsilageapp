@@ -39,7 +39,7 @@ const imagesTemp = [
 
 try{
 
-const res = axios.get('api/image')
+const res =await axios.get('api/image')
 
   return { props: { data : res.data} }
 }catch(err){
