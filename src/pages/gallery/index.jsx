@@ -37,7 +37,7 @@ const imagesTemp = [
     },
   ];
 
-const fetchUrl = `http://${context.req.headers.host}/api/image`;
+const fetchUrl = `https://${context.req.headers.host}/api/image`;
 
 try{
 
