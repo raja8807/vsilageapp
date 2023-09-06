@@ -5,9 +5,9 @@ import Image from "@/models/ImageModel";
 export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
-      const images = await Image.find();
+     // const images = await Image.find();
       // console.log(resumes);
-      res.status(200).send(images);
+      res.status(200).send([{id:'1',src:'ok'}]);
     } catch (err) {
       res.status(500).send({ err: err });
     }
