@@ -1,4 +1,6 @@
+import axios from "axios"
 import { useEffect, useState } from "react";
+
 
 import GalleryScreen from "@/components/pages/gallery/gallery";
 
@@ -19,6 +21,9 @@ export async function getServerSideProps() {
   // Fetch data from external API
   //const res = await fetch(`api/image`)
   //const data = await res.json()
+
+const res = axios.get('api/image')
+
 const imagesTemp = [
     {
       id: "1",
@@ -35,6 +40,6 @@ const imagesTemp = [
   ];
  
   // Pass data to the page via props
-  return { props: { data : imagesTemp} }
+  return { props: { data : res.data} }
 }
 
