@@ -5,7 +5,7 @@ import { Col, Row, Spinner } from "react-bootstrap";
 import GalleryImage from "./image/image";
 import { useEffect, useState } from "react";
 
-const GalleryScreen = () => {
+const GalleryScreen = ({data}) => {
   const imagesTemp = [
     {
       id: "1",
@@ -21,19 +21,9 @@ const GalleryScreen = () => {
     },
   ];
 
-  const [images, setImages] = useState(null);
+  const [images, setImages] = useState(data);
 
   const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    const fetchImages = async () => {
-      const data = await fetch("api/image").then((res) => res.json());
-      setImages(data);
-      setIsLoading(false);
-    };
-    fetchImages();
-  }, []);
 
   return (
     <div className={styles.gallery_screen}>
@@ -63,3 +53,12 @@ const GalleryScreen = () => {
 };
 
 export default GalleryScreen;
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`api/image`)
+  const data = await res.json()
+ 
+  // Pass data to the page via props
+  return { props: { data } }
+}
