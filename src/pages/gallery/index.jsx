@@ -22,8 +22,6 @@ export async function getServerSideProps() {
   //const res = await fetch(`api/image`)
   //const data = await res.json()
 
-const res = axios.get('api/image')
-
 const imagesTemp = [
     {
       id: "1",
@@ -38,8 +36,17 @@ const imagesTemp = [
       src: "/images/banner/3.jpg",
     },
   ];
- 
-  // Pass data to the page via props
+
+try{
+
+const res = axios.get('api/image')
+
   return { props: { data : res.data} }
+}catch(err){
+
+  // Pass data to the page via props
+  return { props: { data : [{id:'1',src: JSON.stringify(err)}]} }
+}
+ 
 }
 
