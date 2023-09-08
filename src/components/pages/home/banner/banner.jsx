@@ -1,8 +1,11 @@
 import { Carousel, Image } from "react-bootstrap";
 import styles from "./banner.module.scss";
 import CustomButton from "@/components/ui/custom_container/custom_button/custom_button";
+import { useRouter } from "next/router";
 
 const Banner = () => {
+  const router = useRouter();
+
   return (
     <div className={styles.banner}>
       <Carousel>
@@ -16,7 +19,13 @@ const Banner = () => {
               ensure best quality chopping and compaction
             </p>
 
-            <CustomButton>Contact Us</CustomButton>
+            <CustomButton
+              clickHandler={() => {
+                router.replace("/contact");
+              }}
+            >
+              Contact Us
+            </CustomButton>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item className={styles.item}>
@@ -29,7 +38,11 @@ const Banner = () => {
               throughout the year
             </p>
 
-            <CustomButton>Contact Us</CustomButton>
+            <CustomButton
+              clickHandler={() => {
+                router.replace("/contact");
+              }}
+            >Contact Us</CustomButton>
           </Carousel.Caption>
         </Carousel.Item>
 
@@ -40,7 +53,11 @@ const Banner = () => {
             <h1>VSilage</h1>
             <p>Highly Nutritious feed for cows,goat,& sheep</p>
 
-            <CustomButton>Contact Us</CustomButton>
+            <CustomButton
+              clickHandler={() => {
+                router.replace("/contact");
+              }}
+            >Contact Us</CustomButton>
           </Carousel.Caption>
         </Carousel.Item>
 
@@ -53,7 +70,11 @@ const Banner = () => {
               Highly nutritious cattle feed with more than 12 months shelf-life
             </p>
 
-            <CustomButton>Contact Us</CustomButton>
+            <CustomButton
+              clickHandler={() => {
+                router.replace("/contact");
+              }}
+            >Contact Us</CustomButton>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

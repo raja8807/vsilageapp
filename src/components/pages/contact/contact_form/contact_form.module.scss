@@ -1,0 +1,29 @@
+.contact_form {
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin: 8px 0;
+
+      button {
+        margin-top: 14px;
+        width: fit-content;
+      }
+    }
+
+    input,
+    textarea {
+      width: 60%;
+      padding: 4px 10px;
+
+      @include respond-below(md){
+        width: 100%;
+      }
+    }
+  }
+}

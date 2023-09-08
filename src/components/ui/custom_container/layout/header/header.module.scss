@@ -71,28 +71,7 @@
           height: 30px;
         }
 
-        .social {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-
-          > div {
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            height: 30px;
-            width: 30px;
-            border-radius: 50%;
-            @include flexCenter;
-            color: white;
-            cursor: pointer;
-            &:hover {
-              border: 1px solid white;
-              color: $color_light_green;
-            }
-            svg {
-              font-size: 14px;
-            }
-          }
-        }
+       
         .contact {
           color: white;
           display: flex;

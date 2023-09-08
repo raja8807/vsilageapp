@@ -10,9 +10,7 @@ const GalleryScreen = ({data}) => {
 
   return (
     <div className={styles.gallery_screen}>
-{/* <p>
-data : {JSON.stringify(data)}
-</p> */}
+
       <CustomContainer>
         <CustomSection heading="Our Gallery">
           {data && data?.length > 0 && (

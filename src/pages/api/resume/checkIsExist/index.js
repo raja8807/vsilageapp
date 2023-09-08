@@ -16,8 +16,6 @@ export default async function handler(req, res) {
           },
         ],
       });
-
-      // const sentMessage = await Chat.create(req.body);
       res.status(201).send(!!x);
     } catch (err) {
       console.log(err);

@@ -1,0 +1,42 @@
+.tabs {
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+  @include respond-below(md) {
+    flex-direction: column;
+    // flex-wrap: wrap;
+    font-size: 14px;
+
+    .tab {
+      width: 100%;
+    }
+  }
+
+  .tab {
+    padding: 10px 20px;
+    background-color: $color_dark_green;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(128, 128, 128, 0.538);
+      color: $color_dark_green;
+    }
+
+    &.active {
+      color: $color_dark_green;
+      background-color: white;
+    }
+  }
+}
+
+.content {
+  p {
+    font-size: 14px;
+  }
+
+  h4 {
+    // font-size: 20px;
+    font-weight: 600;
+  }
+}

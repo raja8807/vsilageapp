@@ -35,6 +35,7 @@ export default function App({ session, Component, pageProps }) {
             <Component {...pageProps} />
           </main>
           <Chatter />
+          
         </Layout>
       </SessionProvider>
     </>

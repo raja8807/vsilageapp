@@ -2,7 +2,16 @@ import { Col, Image, Row } from "react-bootstrap";
 import CustomContainer from "../../custom_container";
 import styles from "./footer.module.scss";
 import Link from "next/link";
-import { EnvelopeAtFill, Facebook, Instagram, PinMap, Telephone, Whatsapp, Youtube } from "react-bootstrap-icons";
+import {
+  EnvelopeAtFill,
+  Facebook,
+  Instagram,
+  PinMap,
+  Telephone,
+  Whatsapp,
+  Youtube,
+} from "react-bootstrap-icons";
+import SocialMedia from "@/components/social_media/social_media";
 
 const Footer = () => {
   const navLinks = [
@@ -82,11 +91,10 @@ const Footer = () => {
               </div>
               <div className={styles.address}>
                 <PinMap />
-                <div >
+                <div>
                   <p>106H,5D/6 palai road West,</p>
                   <p>Millerpuram,</p>
                   <p>Thoothukudi - 628008.</p>
-                 
                 </div>
               </div>
             </div>
@@ -96,18 +104,8 @@ const Footer = () => {
 
       <CustomContainer className={styles.bottom}>
         <div>
-            <p>We Are Social</p>
-            <div className={styles.social}>
-                <div>
-                  <Facebook />
-                </div>
-                <div>
-                  <Instagram />
-                </div>
-                <div>
-                  <Youtube />
-                </div>
-              </div>
+          <p>We Are Social</p>
+          <SocialMedia/>
         </div>
       </CustomContainer>
     </div>

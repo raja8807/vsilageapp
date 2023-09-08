@@ -134,8 +134,6 @@ const UploadApllication = (props) => {
 
   const router = useRouter();
 
-  console.log(fileData);
-
   return (
     <div className={styles.upload_application}>
       {isLoading && (

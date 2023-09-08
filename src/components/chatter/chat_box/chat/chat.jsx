@@ -11,8 +11,6 @@ const Chat = (props) => {
 
   const createdAt = new Date(chat.createdAt);
 
-  // console.log(chat);
-
   const getIcon = () => {
     if (chat.status === "success") {
       return chat.isRead ? (

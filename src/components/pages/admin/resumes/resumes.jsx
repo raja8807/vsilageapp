@@ -6,7 +6,6 @@ const Resumes = () => {
   const [resumes, setResumes] = useState(null);
   const [loading, setIsLoading] = useState(false);
 
-  console.log(loading);
 
   useEffect(() => {
     const fetchData = async () => {

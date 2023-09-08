@@ -4,6 +4,7 @@ const { Offcanvas } = require("react-bootstrap");
 
 import styles from "./header-drawer.module.scss";
 import { useRouter } from "next/router";
+import SocialMedia from "@/components/social_media/social_media";
 
 const HeaderDrawer = (props) => {
   const { show, setShow,  navLinks } = props;
@@ -32,6 +33,7 @@ const HeaderDrawer = (props) => {
             {link.name}
           </Link>
         ))}
+        <SocialMedia black/>
       </Offcanvas.Body>
     </Offcanvas>
   );

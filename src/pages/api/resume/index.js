@@ -17,8 +17,6 @@ if(req.method === 'GET'){
     try {
       await connectMongoDB();
       const newResume = await Resume.create(JSON.parse(req.body));
-
-      // const sentMessage = await Chat.create(req.body);
       res.status(201).send(newResume);
     } catch (err) {
       console.log(err);

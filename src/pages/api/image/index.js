@@ -7,7 +7,6 @@ export default async function handler(req, res) {
     try {
       await connectMongoDB();
      const images = await Image.find();
-      // console.log(resumes);
       res.status(200).send(images);
     } catch (err) {
       res.status(500).send({ err: err });
@@ -18,8 +17,6 @@ export default async function handler(req, res) {
     try {
       await connectMongoDB();
       const newResume = await Image.create(req.body);
-
-      // const sentMessage = await Chat.create(req.body);
       res.status(201).send(newResume);
     } catch (err) {
       console.log(err);
@@ -30,8 +27,6 @@ export default async function handler(req, res) {
     try {
       await connectMongoDB();
       const newResume = await Image.findOneAndDelete({ src: req.query.src });
-
-      // const sentMessage = await Chat.create(req.body);
       res.status(202).send(newResume);
     } catch (err) {
       console.log(err);

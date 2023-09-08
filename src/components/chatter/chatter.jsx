@@ -67,7 +67,7 @@ const Chatter = () => {
       <div
         className={styles.openChatButton}
         onClick={() => {
-          setShowPopup(false)
+          setShowPopup(false);
           setShowChatBox(true);
         }}
       >

@@ -1,0 +1,12 @@
+.whatsapp_button {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 100;
+  @include respond-below(sm) {
+    svg {
+      height: 35px;
+      width: 35px;
+    }
+  }
+}

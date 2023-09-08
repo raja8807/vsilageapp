@@ -1,0 +1,30 @@
+.social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  div {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    &.black {
+      // background-color: red;
+      border: 1px solid $color_dark_green;
+      color: $color_dark_green;
+    }
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    @include flexCenter;
+    cursor: pointer;
+    &:hover {
+      border: 1px solid white;
+      color: $color_light_green !important;
+      &.black {
+        border: 1px solid $color_light_green !important;
+      }
+    }
+    svg {
+      font-size: 14px;
+    }
+  }
+}

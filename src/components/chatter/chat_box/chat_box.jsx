@@ -26,8 +26,6 @@ const ChatBox = (props) => {
       : []
   );
 
-  // console.log(currentChatEmail);
-
   const [newMessage, setNewMessage] = useState("");
 
   useEffect(() => {
