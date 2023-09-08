@@ -5,6 +5,7 @@ import Image from "@/models/ImageModel";
 export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
+      await connectMongoDB();
      const images = await Image.find();
       // console.log(resumes);
       res.status(200).send(images);

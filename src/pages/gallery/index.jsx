@@ -1,54 +1,31 @@
-import axios from "axios"
+import axios from "axios";
 import { useEffect, useState } from "react";
-
 
 import GalleryScreen from "@/components/pages/gallery/gallery";
 
-const GalleryPage = ({data})=>{
+const GalleryPage = ({ data }) => {
+  const [images, setImages] = useState([]);
 
-const [images,setImages] = useState([])
+  useEffect(() => {
+    setImages(data);
+  }, [data]);
 
-useEffect(()=>{
-setImages(data)
-},[data])
-
-    return <GalleryScreen data={images}/>
-}
+  return <GalleryScreen data={images} />;
+};
 
 export default GalleryPage;
 
 export async function getServerSideProps(context) {
-  // Fetch data from external API
-  //const res = await fetch(`api/image`)
-  //const data = await res.json()
 
-const imagesTemp = [
-    {
-      id: "1",
-      src: "/images/banner/1.jpg",
-    },
-    {
-      id: "2",
-      src: "/images/banner/2.jpg",
-    },
-    {
-      id: "3",
-      src: "/images/banner/3.jpg",
-    },
-  ];
 
-const fetchUrl = `https://${context.req.headers.host}/api/image`;
+  const fetchUrl = `http://${context.req.headers.host}/api/image`;
 
-try{
+  try {
+    const res = await axios.get(fetchUrl);
 
-const res =await axios.get(fetchUrl)
-
-  return { props: { data : res.data} }
-}catch(err){
-
-  // Pass data to the page via props
-  return { props: { data : [{id:'1',src: JSON.stringify(err)}]} }
+    return { props: { data: res.data } };
+  } catch (err) {
+    // Pass data to the page via props
+    return { props: { data: [{ id: "1", src: JSON.stringify(err) }] } };
+  }
 }
- 
-}
-

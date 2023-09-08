@@ -6,49 +6,28 @@ import GalleryImage from "./image/image";
 import { useEffect, useState } from "react";
 
 const GalleryScreen = ({data}) => {
-  const imagesTemp = [
-    {
-      id: "1",
-      src: "/images/banner/1.jpg",
-    },
-    {
-      id: "2",
-      src: "/images/banner/2.jpg",
-    },
-    {
-      id: "3",
-      src: "/images/banner/3.jpg",
-    },
-  ];
 
-  const [images, setImages] = useState(data);
-
-  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div className={styles.gallery_screen}>
-<p>
+{/* <p>
 data : {JSON.stringify(data)}
-</p>
+</p> */}
       <CustomContainer>
         <CustomSection heading="Our Gallery">
-          {images && images?.length > 0 && (
+          {data && data?.length > 0 && (
             <Row>
-              {images.map((image) => {
+              {data.map((image) => {
                 return <GalleryImage key={image.id} imageData={image} />;
               })}
             </Row>
           )}
-          {images?.length === 0 && (
+          {data?.length === 0 && (
             <div className={styles.loading}>
               <p>No Images</p>
             </div>
           )}
-          {isLoading && (
-            <div className={styles.loading}>
-              <Spinner />
-            </div>
-          )}
+       
         </CustomSection>
       </CustomContainer>
     </div>
