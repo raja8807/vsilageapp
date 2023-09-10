@@ -22,30 +22,35 @@ const Footer = () => {
     },
     {
       id: "about",
-      name: "About",
-      href: "/",
+      name: "About Us",
+      href: "/about",
     },
     {
       id: "silage",
       name: "Silage",
-      href: "/",
+      href: "/silage",
     },
 
     {
       id: "gallery",
       name: "Gallery",
-      href: "/",
+      href: "/gallery",
+    },
+    {
+      id: "careers",
+      name: "Careers",
+      href: "/careers",
     },
     {
       id: "contact",
-      name: "Contact",
-      href: "/",
+      name: "Contact Us",
+      href: "/contact",
     },
-    {
-      id: "login",
-      name: "Login",
-      href: "/",
-    },
+    // {
+    //   id: "login",
+    //   name: "Login",
+    //   href: "/",
+    // },
   ];
 
   return (
@@ -92,9 +97,9 @@ const Footer = () => {
               <div className={styles.address}>
                 <PinMap />
                 <div>
-                  <p>106H,5D/6 palai road West,</p>
-                  <p>Millerpuram,</p>
-                  <p>Thoothukudi - 628008.</p>
+                  <p>1017R/1A, Kamaraj Nagar,</p>
+                  <p>Court opposite,</p>
+                  <p>Tirunelveli - 627002.</p>
                 </div>
               </div>
             </div>
@@ -105,7 +110,7 @@ const Footer = () => {
       <CustomContainer className={styles.bottom}>
         <div>
           <p>We Are Social</p>
-          <SocialMedia/>
+          <SocialMedia />
         </div>
       </CustomContainer>
     </div>

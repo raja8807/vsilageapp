@@ -277,7 +277,7 @@ const UploadApllication = (props) => {
                 !applicantData.phone ||
                 !fileData ||
                 fileData?.size > 1048576 * 2 ||
-                fileData.type === "application/pdf"
+                !fileData.type === "application/pdf"
               }
             >
               Submit

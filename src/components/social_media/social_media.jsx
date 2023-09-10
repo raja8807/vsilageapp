@@ -35,7 +35,7 @@ const SocialMedia = ({ black }) => {
     {
       id: "twitter",
       icon: <Twitter />,
-      href: "https://www.facebook.com/profile.php?id=61550820090901&mibextid=9R9pXO",
+      href: "https://twitter.com/aos_missio79360?t=M8uCxdL1aREiRf93iLK9uA&s=09",
     },
   ];
 

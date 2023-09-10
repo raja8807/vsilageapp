@@ -8,15 +8,16 @@
   .team_card {
     padding: 20px 0;
 
-    @include respond-below(md) {
+    // @include respond-below(md) {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-    }
+    // }
 
     img {
-      width: 150px;
+      width: 250px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
     
     h5 {

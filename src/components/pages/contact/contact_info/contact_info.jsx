@@ -6,20 +6,20 @@ import {
 } from "react-bootstrap-icons";
 import styles from "./contact_info.module.scss";
 import SocialMedia from "@/components/social_media/social_media";
-
+import Link from "next/link";
 
 const ContactInfo = () => {
-
-
   return (
     <>
       <div className={styles.contact_info}>
         <div>
           <h4>Office </h4>
           <p>
-            <GeoAltFill /> 106H,5D/6 palai road West, <br />
-            &nbsp; &nbsp; &nbsp; Millerpuram, <br />
-            &nbsp; &nbsp; &nbsp; Thoothukudi - 628008.
+            <GeoAltFill />
+            1017R/1A, Kamaraj Nagar, <br />
+            &nbsp; &nbsp; &nbsp; Court opposite,
+            <br />
+            &nbsp; &nbsp; &nbsp; Tirunelveli - 627002.
           </p>
         </div>
         <div>
@@ -45,8 +45,11 @@ const ContactInfo = () => {
           </p>
           <p>
             <EnvelopeAtFill />
-            info@vsilage.com <small> - for Job Opportunities</small>
+            hr@vsilage.com <small> - for Job Opportunities</small>
           </p>
+          <br />
+          <Link href="/careers">Join Our Team</Link>{" "}
+          <small> - Submit Your Resume</small>
         </div>
       </div>
       <SocialMedia black />

@@ -4,9 +4,6 @@
   background-color: $color_light_green;
   width: 50px;
   height: 50px;
-
-
-
   border-radius: 50% 5px 50% 50%;
   @include flexCenter;
   position: fixed;
@@ -14,7 +11,6 @@
   bottom: 20px;
   cursor: pointer;
   color: $color_dark_green;
-
   font-size: 28px;
   z-index: 100;
   border: 3px solid $color_dark_green;
