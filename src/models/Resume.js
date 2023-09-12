@@ -5,7 +5,7 @@ const resumeSchema = new Schema(
     applicationId: {
       type: String,
       required: true,
-      unique:true
+      unique: true,
     },
     name: {
       type: String,
@@ -14,17 +14,20 @@ const resumeSchema = new Schema(
     email: {
       type: String,
       required: true,
-      unique:true
+      unique: true,
     },
     phone: {
       type: String,
       required: true,
-      unique:true
+      unique: true,
+    },
+    role: {
+      type: String,
     },
     url: {
       type: String,
       required: true,
-      unique:true
+      unique: true,
     },
   },
   {

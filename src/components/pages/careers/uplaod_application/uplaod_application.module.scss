@@ -1,4 +1,11 @@
 .upload_application {
+  margin-bottom: 24px;
+
+  &[class*="glow"] {
+    form {
+      animation: glow 1s linear;
+    }
+  }
   form {
     background-color: white;
     padding: 10px;
@@ -11,6 +18,10 @@
   input[type="file"] {
     // background-color: red;
     width: 300px;
+  }
+
+  select {
+    padding: 4px 2px;
   }
 
   .submitted {
@@ -31,7 +42,29 @@
     }
   }
 
-  .inputError{
+  .inputError {
     border: 1px solid red;
+  }
+}
+
+@keyframes glow {
+  0% {
+    background-color: white;
+  }
+
+  25% {
+    background-color: grey;
+  }
+
+  50% {
+    background-color: white;
+  }
+
+  75% {
+    background-color: grey;
+  }
+
+  100% {
+    background-color: white;
   }
 }

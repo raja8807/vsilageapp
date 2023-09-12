@@ -1,18 +1,12 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./uplaod_application.module.scss";
 import CustomButton from "@/components/ui/custom_container/custom_button/custom_button";
 import { Check2Circle, ClockFill, XCircleFill } from "react-bootstrap-icons";
 import { useRouter } from "next/router";
-const UploadApllication = () => {
+const UploadApllication = ({ openings,applicantData, setApplicantData }) => {
   // const { setCurrentPdf } = props;
 
-  const [applicantData, setApplicantData] = useState({
-    applicationId: "",
-    name: "",
-    email: "",
-    phone: "",
-    url: "",
-  });
+  
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -25,6 +19,8 @@ const UploadApllication = () => {
     phone: null,
     file: null,
   });
+
+  console.log(applicantData);
 
   function generate_uuidv4() {
     // return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
@@ -50,7 +46,7 @@ const UploadApllication = () => {
     if (ValidateEmail(applicantData.email)) {
       setIsLoading(true);
       try {
-        const file = event.target[3].files[0];
+        const file = event.target[4].files[0];
         const formData = new FormData();
         formData.append("file", file);
         formData.append("upload_preset", "resume");
@@ -113,6 +109,7 @@ const UploadApllication = () => {
                           name: "",
                           email: "",
                           phone: "",
+                          role: "Any",
                           url: "",
                         });
                       }
@@ -134,7 +131,7 @@ const UploadApllication = () => {
   const router = useRouter();
 
   return (
-    <div className={styles.upload_application}>
+    <div className={styles.upload_application} id='uploadResume'>
       {isLoading && (
         <div className={styles.submitted}>
           <ClockFill />
@@ -241,6 +238,27 @@ const UploadApllication = () => {
                 }));
               }}
             />
+            <br />
+            <br />
+            <label>Preferred Role</label>
+            <select
+              value={applicantData.role}
+              onChange={(e) => {
+                setApplicantData((prev) => ({
+                  ...prev,
+                  role: e.target.value,
+                }));
+              }}
+            >
+              <option>Any</option>
+              {openings.map((role) => {
+                return (
+                  <option key={role.id} value={role.role}>
+                    {role.role}
+                  </option>
+                );
+              })}
+            </select>
             <br />
             <br />
             <label>Resume</label>

@@ -21,6 +21,9 @@ const ResumeCard = (props) => {
           <p>
             <b>Phone</b> : {data.phone}
           </p>
+          <p>
+            <b>Role</b> : {data.role}
+          </p>
         </div>
         <div>
           <Link href={data.url} download target="_blank">
