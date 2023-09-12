@@ -211,9 +211,7 @@ const CareersScreen = () => {
       department: "sales",
       employmentType: "Full Time, Permanent",
       education: "UG: 12th pass or Any Graduate",
-      skills:[
-        'Sales','Marketting'
-      ]
+      skills: ["Sales", "Marketting"],
     },
 
     // -----------------------
@@ -232,6 +230,71 @@ const CareersScreen = () => {
         "office coordination",
         "supervising",
       ],
+    },
+
+    // -----
+
+    {
+      id: "7",
+      role: "Female telemarketer",
+      experience: "Female telemarketer",
+      locations: "Tuticorin / Tirunelveli/Kanyakumari/ Chennai",
+      salary:'10k - 25k',
+      description:
+        "In this role, you'll be responsible for reaching out to potential customers, introducing them to our exceptional [product/service], and persuading them to take action. You'll play a vital role in achieving and exceeding our sales targets by showcasing the value of our offerings and addressing customer inquiries. Strong communication skills, a persuasive attitude, and the ability to handle objections gracefully are key to success in this role.",
+      // responsiblities: {
+      //   type: "list",
+      //   points: [
+      //     {
+      //       head: "Indoors (Office)",
+      //       items: [
+      //         "Schedule office and personal meetings.",
+      //         "Attend business related phone calls and categorize the information.",
+      //         "Book tatkal train tickets and make travel arrangements.",
+      //         "Scan, file and organise paperworks.",
+      //         "Supervise housekeeping staff.",
+      //         "Assist in office as well as personal administration works.",
+      //       ],
+      //     },
+      //     {
+      //       head: "Outdoors",
+      //       items: [
+      //         "Drive two wheeler for outdoor works",
+      //         "Visit shops and purchase personal and office goods.",
+      //         "Visit banks for form submissions and fun transfers.",
+      //         "Visit banks for form submissions and fun transfers.",
+      //         "Attend office related programme ",
+      //       ],
+      //     },
+      //   ],
+      // },
+      // department: "Administration & Facilities",
+      // employmentType: "Full Time, Permanent",
+      employmentType: "Full Time, Permanent",
+
+      education: "Any degree",
+      skills: [
+        "Communication Skills ",
+        "Lead Closure ",
+        "Target Achieve",
+        
+      ],
+      // mandatorySkill: (
+      //   <>
+      //     {/* <h6>Qulaification</h6> */}
+      //     <ul>
+      //       <li>
+      //         <small>Can read and write in English.</small>
+      //       </li>
+      //       <li>
+      //         <small>Fluent in speaking Tamil,English</small>
+      //       </li>
+      //       <li>
+      //         <small>Computer knowledge to print/scan/write emails.</small>
+      //       </li>
+      //     </ul>
+      //   </>
+      // ),
     },
   ];
 

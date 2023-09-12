@@ -129,7 +129,7 @@ const CropSuitableTab = () => {
               Specializing in harvesting, baling as well as logistics, we work
               best with farmers by sending in a team of experts who will come to
               your farm, harvest the crop and pack it in the best possible
-              conditions. Cornext offers baling & logistic services to large
+              conditions. VIFPRO offers baling & logistic services to large
               dairy farms as well as farmers who can identify the maize crop for
               silaging.
             </p>

@@ -132,7 +132,7 @@ const WhatIsSilageTab = () => {
           </p>
           <br />
           <p>
-            At Cornext, the best corn silage suppliers in India offers silage
+            At VIFPRO, the best corn silage suppliers in India offers silage
             bales & baling services to large dairy farms as well as farmers who
             can identify the maize crop for silaging. Specializing in harvesting
             and baling process, we work best with farmers by sending in a team

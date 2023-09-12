@@ -63,7 +63,7 @@ const Banner = () => {
 
         <Carousel.Item className={styles.item}>
           <div className={styles.overlay} />
-          <Image src="/images/banner/2.jpg" fluid alt="img_banner" />
+          <Image src="/images/banner/4.jpg" fluid alt="img_banner" />
           <Carousel.Caption className={styles.caption}>
             <h1>VSilage</h1>
             <p>

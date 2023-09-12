@@ -61,9 +61,9 @@ const Footer = () => {
             <div className={styles.brand}>
               <Image src="/images/logo/logo.png" alt="logo" fluid />
               <p>
-                An award-winning AgriTech Startup focused on building a fodder
-                ecosystem to help the Indian dairy farmer with sustained supply
-                of green fodder Nutrition.
+                An award-winning FPO focused on building a fodder ecosystem to
+                help the Indian dairy farmer with sustained supply of green
+                fodder Nutrition.
               </p>
             </div>
           </Col>

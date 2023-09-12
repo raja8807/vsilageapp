@@ -31,7 +31,7 @@ const WhyBaledSilageTab = () => {
               Baled silage by far offers the best fodder preservation method in
               the world because it retains the fodder quality for 1.5 years, the
               size of bales is small enough for easy transportation, storage and
-              allows zero wastage (unlike silos and bunkers) and Cornext
+              allows zero wastage (unlike silos and bunkers) and VIFPRO
               introduced the concept of baled corn silage for the first time in
               India with the highest density of 850-900 kg/m3.
             </p>
@@ -94,7 +94,7 @@ const WhyBaledSilageTab = () => {
             <p>
               The traditional methods of stamping with feet or machines do not
               pack the fodder with enough density to retain the moisture without
-              oxygen. In contrast, Cornext, one of the best corn silage
+              oxygen. In contrast, VIFPRO, one of the best corn silage
               suppliers in India packs the fodder into bales of 850-900
               kg/metre3 density so that fodder retains 35% moisture. It is the
               highest density of baled silage packaging possible in the world.
@@ -116,7 +116,7 @@ const WhyBaledSilageTab = () => {
               </li>
             </ul>
             <p>
-              In contrast, Cornext packs the fodder using special-purpose
+              In contrast, VIFPRO packs the fodder using special-purpose
               machinery that packs them in bales of manageable size. The size of
               a bale is 85 cm in diameter and 80 cm in height.
             </p>
@@ -144,7 +144,7 @@ const WhyBaledSilageTab = () => {
             <h4>b) Measurable Quality of Silage</h4>
             <p>
               The quality of baled silage is dependent on how densely the silage
-              is packed. Cornext has the technology to pack the bales at the
+              is packed. VIFPRO has the technology to pack the bales at the
               right density of 850-900 kg/m3. Knowing the DM value of feed is
               important while determining the silage quality and feeding the
               cattle.Baled silage consists of dry matter (DM) and water. Dry
@@ -191,7 +191,7 @@ const WhyBaledSilageTab = () => {
         <p>
           As one of the leading silage baler manufacturers in India,
           Governments, large dairy farms in the private and public sectors and
-          non-profit organizations working in the dairy sector approach Cornext
+          non-profit organizations working in the dairy sector approach VIFPRO
           for baling and distribution to their desired spots.
         </p>
         <br />
