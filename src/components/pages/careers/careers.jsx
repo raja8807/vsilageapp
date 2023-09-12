@@ -5,9 +5,10 @@ import UploadApllication from "./uplaod_application/uplaod_application";
 import { Col, Row } from "react-bootstrap";
 import Link from "next/link";
 import { useState } from "react";
+import JobPortal from "./job_portal/job_portal";
 
 const CareersScreen = () => {
-  const [currentPdf, setCurrentPdf] = useState();
+  // const [currentPdf, setCurrentPdf] = useState();
 
   return (
     <div className={styles.careers_screen}>
@@ -21,11 +22,14 @@ const CareersScreen = () => {
           </p>
           <br />
           <Row>
-            <Col xs={12} md={6}>
-              <UploadApllication setCurrentPdf={setCurrentPdf} />
+            <Col xs={12} md={7}>
+              <JobPortal/>
+            </Col>
+            <Col xs={12} md={5}>
+              <UploadApllication  />
             </Col>
 
-            <Col xs={12} md={6}>
+            {/* <Col xs={12} md={6}>
               {currentPdf && (
                 <iframe
                   src={currentPdf}
@@ -36,7 +40,7 @@ const CareersScreen = () => {
                   // frameborder="0"
                 ></iframe>
               )}
-            </Col>
+            </Col> */}
           </Row>
         </CustomSection>
       </CustomContainer>

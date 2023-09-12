@@ -1,11 +1,10 @@
 import { useState } from "react";
 import styles from "./uplaod_application.module.scss";
 import CustomButton from "@/components/ui/custom_container/custom_button/custom_button";
-import { Row } from "react-bootstrap";
 import { Check2Circle, ClockFill, XCircleFill } from "react-bootstrap-icons";
 import { useRouter } from "next/router";
-const UploadApllication = (props) => {
-  const { setCurrentPdf } = props;
+const UploadApllication = () => {
+  // const { setCurrentPdf } = props;
 
   const [applicantData, setApplicantData] = useState({
     applicationId: "",
@@ -80,7 +79,7 @@ const UploadApllication = (props) => {
               return res.json();
             })
             .then((cloudinaryUploadedData) => {
-              setCurrentPdf(cloudinaryUploadedData.secure_url);
+              // setCurrentPdf(cloudinaryUploadedData.secure_url);
               fetch("api/resume", {
                 method: "POST",
                 body: JSON.stringify({
@@ -139,7 +138,7 @@ const UploadApllication = (props) => {
       {isLoading && (
         <div className={styles.submitted}>
           <ClockFill />
-          <p>Yuor Resume is being Submitted Please Wait...</p>
+          <p>Your Resume is being Submitted Please Wait...</p>
         </div>
       )}
       {isSubmitted && (
