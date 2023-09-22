@@ -31,7 +31,9 @@ export default function App({ session, Component, pageProps }) {
       `}</style> */}
       <SessionProvider session={session}>
         
-            Sorry, Your Trial Hosting Has Been Expired. 
+            Sorry, Your Trial Hosting Has Been Expired. <br/>
+
+<p>Visit <a href='https://vercel.com/pricing'>https://vercel.com/pricing</a> for more details</p>
 
       </SessionProvider>
     </>
