@@ -32,7 +32,7 @@ export default function App({ session, Component, pageProps }) {
       <SessionProvider session={session}>
         <Layout>
           <main className={roboto.className}>
-            <Component {...pageProps} />
+            Sorry, Your Trial Hosting Has Been Expired. 
           </main>
           <Chatter />
           
