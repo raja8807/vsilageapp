@@ -34,7 +34,7 @@ const Banner = () => {
           <Carousel.Caption className={styles.caption}>
             <h1>VSilage</h1>
             <p>
-              .Top quality cattle feed to ensure high yield & good quality milk
+              Top quality cattle feed to ensure high yield & good quality milk
               throughout the year
             </p>
 

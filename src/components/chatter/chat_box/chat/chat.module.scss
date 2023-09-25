@@ -6,7 +6,8 @@
   margin-bottom: 10px;
 
   .message {
-    background-color: $color_light_green;
+    // background-color: $color_light_green;
+    background-color: #f1f1f1;
     padding: 10px 20px 5px 10px;
     border-radius: 15px 15px 15px 0px;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
@@ -39,10 +40,11 @@
     flex-direction: row-reverse;
 
     .message {
-      background-color: $color_dark_green;
+      // background-color: $color_dark_green;
+      background-color: #000000;
       color: white;
       border-radius: 15px 15px 0 15px;
-      font-weight: 400;
+      // font-weight: 400;
     }
 
     small {

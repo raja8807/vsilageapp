@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ChatBox from "../chat_box/chat_box";
 import ChatList from "../chat_list/chat_list";
 import styles from "./chatter-drawer.module.scss";
-import { ArrowLeft, ArrowLeftCircle } from "react-bootstrap-icons";
+import { ArrowLeft, ArrowLeftCircle, X } from "react-bootstrap-icons";
 import LoginBox from "../login_box/login_box";
 import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
@@ -10,10 +10,8 @@ import { signOut } from "next-auth/react";
 const { Offcanvas } = require("react-bootstrap");
 
 const ChatterDrawer = (props) => {
-  const { show, setShow,setHasNotifiaction } = props;
+  const { show, setShow, setHasNotifiaction } = props;
   const handleClose = () => setShow(false);
-
-  
 
   const session = useSession();
 
@@ -56,59 +54,69 @@ const ChatterDrawer = (props) => {
 
   useEffect(() => {
     setCurrentUserEmail(sessionStorage.getItem("currentUserEmail"));
-   
   }, []);
 
   const [currentChatEmail, setCurrentChatEmail] = useState(null);
 
   return (
-    <Offcanvas show={show} onHide={handleClose} placement="end">
-      <Offcanvas.Header closeButton className={styles.header}>
-        {!isAuthenticated && !currentUserEmail && "Login"}
-        {!isAuthenticated && currentUserEmail && (
-          <>
-            <ArrowLeftCircle
-              onClick={() => {
-                sessionStorage.removeItem("currentUserEmail");
-                setCurrentUserEmail(null);
-              }}
-            />
-            Chat
-          </>
-        )}
+    show && (
+      <div className={styles.chatter}>
+        <div className={styles.header}>
+          {!isAuthenticated && !currentUserEmail && "Login"}
+          {!isAuthenticated && currentUserEmail && (
+            <>
+              <ArrowLeftCircle
+                onClick={() => {
+                  sessionStorage.removeItem("currentUserEmail");
+                  setCurrentUserEmail(null);
+                }}
+              />
+              Chat
+            </>
+          )}
 
-        {isAuthenticated && !currentChatEmail && (
-          <>
-            <p
-              onClick={async () => {
-                await signOut();
-              }}
-              style={{ cursor: "pointer" }}
-            >
-              Logout
-            </p>
-            All Chats
-          </>
-        )}
+          {isAuthenticated && !currentChatEmail && (
+            <>
+              <p
+                onClick={async () => {
+                  await signOut();
+                }}
+                style={{ cursor: "pointer" }}
+              >
+                Logout
+              </p>
+              All Chats
+            </>
+          )}
 
-        {isAuthenticated && currentChatEmail && (
-          <>
-            <ArrowLeftCircle
-              onClick={() => {
-                setCurrentChatEmail(null);
-              }}
-            />
-            {currentChatEmail}
-          </>
-        )}
-      </Offcanvas.Header>
-      <Offcanvas.Body style={{ padding: 0 }}>
+          {isAuthenticated && currentChatEmail && (
+            <>
+              <ArrowLeftCircle
+                onClick={() => {
+                  setCurrentChatEmail(null);
+                }}
+              />
+              {currentChatEmail}
+            </>
+          )}
+
+          <X
+          className={styles.close}
+            onClick={() => {
+              setShow(false);
+            }}
+          />
+        </div>
         {!isAuthenticated && !currentUserEmail && (
           <LoginBox setCurrentUserEmail={setCurrentUserEmail} />
         )}
 
         {!isAuthenticated && currentUserEmail && (
-          <ChatBox currentChatEmail={currentUserEmail} isUser={true} setHasNotifiaction={setHasNotifiaction}/>
+          <ChatBox
+            currentChatEmail={currentUserEmail}
+            isUser={true}
+            setHasNotifiaction={setHasNotifiaction}
+          />
         )}
 
         {isAuthenticated && !currentChatEmail && (
@@ -133,8 +141,81 @@ const ChatterDrawer = (props) => {
             chatListData={chatListData}
           />
         )}
-      </Offcanvas.Body>
-    </Offcanvas>
+      </div>
+    )
+    // <Offcanvas show={show} onHide={handleClose} placement="end">
+    //   <Offcanvas.Header closeButton className={styles.header}>
+    // {!isAuthenticated && !currentUserEmail && "Login"}
+    // {!isAuthenticated && currentUserEmail && (
+    //   <>
+    //     <ArrowLeftCircle
+    //       onClick={() => {
+    //         sessionStorage.removeItem("currentUserEmail");
+    //         setCurrentUserEmail(null);
+    //       }}
+    //     />
+    //     Chat
+    //   </>
+    // )}
+
+    // {isAuthenticated && !currentChatEmail && (
+    //   <>
+    //     <p
+    //       onClick={async () => {
+    //         await signOut();
+    //       }}
+    //       style={{ cursor: "pointer" }}
+    //     >
+    //       Logout
+    //     </p>
+    //     All Chats
+    //   </>
+    // )}
+
+    // {isAuthenticated && currentChatEmail && (
+    //   <>
+    //     <ArrowLeftCircle
+    //       onClick={() => {
+    //         setCurrentChatEmail(null);
+    //       }}
+    //     />
+    //     {currentChatEmail}
+    //   </>
+    // )}
+    //   </Offcanvas.Header>
+    //   <Offcanvas.Body style={{ padding: 0 }}>
+    //     {!isAuthenticated && !currentUserEmail && (
+    //       <LoginBox setCurrentUserEmail={setCurrentUserEmail} />
+    //     )}
+
+    //     {!isAuthenticated && currentUserEmail && (
+    //       <ChatBox currentChatEmail={currentUserEmail} isUser={true} setHasNotifiaction={setHasNotifiaction}/>
+    //     )}
+
+    //     {isAuthenticated && !currentChatEmail && (
+    //       <ChatList
+    //         setCurrentChatEmail={setCurrentChatEmail}
+    //         setChats={setChats}
+    //         adminEmail={session?.data?.user?.email}
+    //         fetchChats={fetchChats}
+    //         chatListData={chatListData}
+    //         setChatListData={setChatListData}
+    //         setHasNotifiaction={setHasNotifiaction}
+    //       />
+    //     )}
+
+    //     {isAuthenticated && currentChatEmail && (
+    //       <ChatBox
+    //         currentChatEmail={currentChatEmail}
+    //         chats={chats}
+    //         fetchChats={fetchChats}
+    //         setChatListData={setChatListData}
+    //         setHasNotifiaction={setHasNotifiaction}
+    //         chatListData={chatListData}
+    //       />
+    //     )}
+    //   </Offcanvas.Body>
+    // </Offcanvas>
   );
 };
 

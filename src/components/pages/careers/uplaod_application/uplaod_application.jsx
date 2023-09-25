@@ -90,7 +90,7 @@ const UploadApllication = ({ openings,applicantData, setApplicantData }) => {
                 })
                 .then((dbPostedData) => {
                   setIsSubmitted(dbPostedData.applicationId);
-                  fetch("https://formspree.io/f/maygjegz", {
+                  fetch("https://formspree.io/f/mwkdrjvd", {
                     method: "POST",
                     body: JSON.stringify({
                       email: dbPostedData.email,

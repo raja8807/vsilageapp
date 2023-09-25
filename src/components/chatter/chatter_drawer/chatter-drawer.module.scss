@@ -1,16 +1,64 @@
+// .header {
+//   background-color: $color_dark_green;
+//   padding: 10px;
+//   color: white;
+
+//   svg {
+//     font-size: 20px;
+//     cursor: pointer;
+//   }
+
+//   button {
+//     background-color: white;
+//     height: 8px;
+//     width: 8px;
+//   }
+// }
+
 .header {
-  background-color: $color_dark_green;
-  padding: 10px;
+  height: 45px;
+  // background-color: $color_dark_green;
+  background-color: black;
   color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  justify-content: space-between;
 
-  svg {
-    font-size: 20px;
+  svg{
     cursor: pointer;
-  }
 
-  button {
-    background-color: white;
-    height: 8px;
-    width: 8px;
+  }
+  .close {
+    background-color: gray;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: white;
+      color: black;
+    }
   }
 }
+
+.chatter {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  background-color: white;
+  z-index: 200;
+  height: 80vh;
+  width: 400px;
+  overflow: hidden;
+
+  @include respond-below(sm){
+    width: 100vw;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+  }
+}
+

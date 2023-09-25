@@ -102,6 +102,22 @@ const Footer = () => {
                   <p>Tirunelveli - 627002.</p>
                 </div>
               </div>
+              <div className={styles.address}>
+                <PinMap />
+                <div>
+                  <p>Shop No.204, Food Grain Market,</p>
+                  <p>Koyambedu,</p>
+                  <p>Chennai - 600107.</p>
+                </div>
+              </div>
+              <div className={styles.address}>
+                <PinMap />
+                <div>
+                  <p>Kachirapalayam main road,,</p>
+                  <p>K.Chellampattu, Chinnasalem,</p>
+                  <p>Kallakurichi - 606207.</p>
+                </div>
+              </div>
             </div>
           </Col>
         </Row>

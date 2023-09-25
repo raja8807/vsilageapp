@@ -12,7 +12,7 @@ const ContactInfo = () => {
   return (
     <>
       <div className={styles.contact_info}>
-        <div>
+        {/* <div>
           <h4>Office </h4>
           <p>
             <GeoAltFill />
@@ -21,7 +21,7 @@ const ContactInfo = () => {
             <br />
             &nbsp; &nbsp; &nbsp; Tirunelveli - 627002.
           </p>
-        </div>
+        </div> */}
         <div>
           <h4>Phone</h4>
           <p>
@@ -37,15 +37,27 @@ const ContactInfo = () => {
           <h4>Email</h4>
           <p>
             <EnvelopeAtFill />
-            info@vsilage.com <small> - for General Information</small>
+            <Link href="mailto:info@vsilage.com">
+              <span>info@vsilage.com</span>
+            </Link>
+
+            <small> - for General Information</small>
           </p>
           <p>
             <EnvelopeAtFill />
-            sales@vsilage.com <small> - for Sales</small>
+
+            <Link href="mailto:sales@vsilage.com">
+              <span>sales@vsilage.com</span>
+            </Link>
+
+            <small> - for Sales</small>
           </p>
           <p>
             <EnvelopeAtFill />
-            hr@vsilage.com <small> - for Job Opportunities</small>
+            <Link href="mailto:hr@vsilage.com">
+              <span>hr@vsilage.com</span>
+            </Link>
+            <small>- for Job Opportunities</small>
           </p>
           <br />
           <Link href="/careers">Join Our Team</Link>{" "}

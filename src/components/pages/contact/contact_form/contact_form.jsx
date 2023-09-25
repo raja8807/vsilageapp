@@ -21,7 +21,7 @@ const ContactForm = () => {
     setIsLoading(true);
     setIsError(false);
     try {
-      await axios.post("https://formspree.io/f/maygjegz", {
+      await axios.post("https://formspree.io/f/mwkdrjvd", {
         email: formData.email,
         message: {
           name: formData.name,
