@@ -2,8 +2,12 @@ import CustomContainer from "@/components/ui/custom_container/custom_container";
 import styles from "./about_us.module.scss";
 import { Col, Row } from "react-bootstrap";
 import CustomButton from "@/components/ui/custom_container/custom_button/custom_button";
+import { useRouter } from "next/router";
 
 const AboutUs = () => {
+
+  const router = useRouter()
+
   return (
     <div className={styles.aboutUs}>
       <div className={styles.overlay} />
@@ -19,7 +23,9 @@ const AboutUs = () => {
               manufacturing & selling of Silage Baling Machines along with
               supply of necessary consumables.
             </p>
-            <CustomButton>Know More</CustomButton>
+            <CustomButton clickHandler={()=>{
+              router.replace('/about')
+            }}>Know More</CustomButton>
           </Col>
           <Col md={6} className={styles.right}>
             <iframe
