@@ -9,7 +9,6 @@ import {
 } from "react-bootstrap-icons";
 import styles from "./opening.module.scss";
 import { Col, Row } from "react-bootstrap";
-import { useRef } from "react";
 import CustomButton from "@/components/ui/custom_container/custom_button/custom_button";
 
 const JobOpening = ({

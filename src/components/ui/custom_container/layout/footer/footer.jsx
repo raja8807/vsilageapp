@@ -129,6 +129,23 @@ const Footer = () => {
           <SocialMedia />
         </div>
       </CustomContainer>
+
+      <CustomContainer>
+        <div className={styles.descl}>
+          <p>
+            Copyrights © 2020 <Link href="/">Vsilage</Link>. All rights
+            reserved.
+          </p>
+          <p>
+            Website Developed By{" "}
+            <Link href="https://www.nammaoorudev.online"
+            target="_blank"
+            >
+              www.nammaoorudev.online
+            </Link>
+          </p>
+        </div>
+      </CustomContainer>
     </div>
   );
 };

@@ -13,7 +13,7 @@ const CareersScreen = () => {
   const openings = [
     {
       id: "1",
-      role: "Back office Executive",
+      role: "Back Office Executive",
       description:
         "Required Candidates with any Bachelors degree , good communication skills, Analytical skills and computer skills.",
       experience: "Skilled",
@@ -53,8 +53,8 @@ const CareersScreen = () => {
     },
     {
       id: "3",
-      role: "Personal assistant",
-      experience: "skilled",
+      role: "Personal Assistant",
+      experience: "Skilled",
       locations: "Tuticorin, Tirunelveli, Kanyakumari, Chennai",
       description:
         "We are looking for a skilled personal assistant for the Managing Director, to assist him in office as well as outdoor activities.",
@@ -114,7 +114,7 @@ const CareersScreen = () => {
 
     {
       id: "4",
-      role: "Business Development manager",
+      role: "Business Development Manager",
       experience: "2+years experience as a Marketing Coordinator .",
       // locations: "Tuticorin, Tirunelveli, Kanyakumari, Chennai",
       description: (
@@ -187,7 +187,7 @@ const CareersScreen = () => {
 
     {
       id: "5",
-      role: "Sales executive",
+      role: "Sales Executive",
       experience:
         "Min 0 - 3 years of experience in building material field sales",
       salary: ": 15-18K In hand + Travel - Based on Experience",
@@ -218,7 +218,7 @@ const CareersScreen = () => {
 
     {
       id: "6",
-      role: "Business coordinator",
+      role: "Business Coordinator",
       experience: "Minimum 2 years of exp. in office works.",
       description:
         "Activities related to banking, office work, monitoring of office building tiny maintenance work, cordination and supervision of existing staff, other office works depending on skills and abilities/experience",
@@ -236,7 +236,7 @@ const CareersScreen = () => {
 
     {
       id: "7",
-      role: "Female telemarketer",
+      role: "Female Telemarketer",
       experience: "Female telemarketer",
       locations: "Tuticorin / Tirunelveli/Kanyakumari/ Chennai",
       salary:'10k - 25k',

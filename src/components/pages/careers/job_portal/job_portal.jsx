@@ -5,7 +5,7 @@ import JobOpening from "./openings/opening";
 import { Col, Row } from "react-bootstrap";
 import CustomSection from "../../home/section/section";
 
-const JobPortal = ({openings,uploadRef,setApplicantData}) => {
+const JobPortal = ({openings,setApplicantData}) => {
   
 
   const [expnadedOpening, setexpnadedOpening] = useState(null);

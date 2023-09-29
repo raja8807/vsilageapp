@@ -95,4 +95,23 @@
 
     
   }
+
+  .descl{
+    display: flex;
+    font-size: 13px;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    @include respond-below(md){
+      flex-direction: column;
+      justify-content: center;
+      p{
+        text-align: center;
+      }
+    }
+    p{
+      color: rgb(223, 223, 223);
+      margin-bottom: 5px;
+    }
+  }
 }
