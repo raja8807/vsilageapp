@@ -9,7 +9,10 @@ export default async function handler(req, res) {
       {
         $and: [
           {
-            senderEmail: req.query.email,
+            $or: [
+              { senderEmail: req.query.email },
+              { recieverEmail: req.query.email },
+            ],
           },
           {
             isRead: false,

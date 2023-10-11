@@ -9,6 +9,8 @@ const ChatRow = (props) => {
     lastMessageTime,
   } = props;
 
+  // console.log(unreadMessageCount);
+
 
   const time = new Date(lastMessageTime);
 

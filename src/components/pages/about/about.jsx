@@ -13,8 +13,9 @@ const AboutScreen = () => {
         <div className={styles.about_screen}>
           <div className={styles.top}>
             <h2>Welcome to Vilathikulam Farmers Producer Company Limited</h2>
+            <hr/>
             <h4>
-              {" "}
+              
               Empowering Agriculture with Quality Corn Silage: Vilathikulam
               Farmers Producer Company Limited
             </h4>
@@ -27,6 +28,7 @@ const AboutScreen = () => {
               agricultural sector.
             </p>
           <h4>Our Vision: Setting New Standards</h4>
+          
           <p>
             Our vision is simple yet profound: to be a driving force in
             transforming traditional farming practices through innovation and
